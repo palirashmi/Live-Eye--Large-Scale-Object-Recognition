@@ -4,4 +4,4 @@ tools/train_net.py --gpu 0 --solver ./models/solvers/solver.prototxt --weights d
 
 #Testing command
 
-./tools/test_net.py --gpu 0 --def ./models/coco/solvers/test.prototxt --net ./models/bigdata_coco_final.caffemodel --imdb coco_2015_test --cfg experiments/cfgs/faster_rcnn_end2end.yml
+tools/test_net.py --gpu 0 --def ./models/solvers/test.prototxt --net ./models/bigdata_coco_final.caffemodel --imdb coco_2015_test --cfg experiments/cfgs/faster_rcnn_end2end.yml
