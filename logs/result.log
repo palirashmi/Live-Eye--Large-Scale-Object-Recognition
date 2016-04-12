@@ -1,0 +1,4161 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0412 02:27:09.633473  9520 net.cpp:49] Initializing net from parameters: 
+name: "BIGDATA_COCO_NET"
+input: "data"
+input: "im_info"
+state {
+  phase: TEST
+}
+input_shape {
+  dim: 1
+  dim: 3
+  dim: 224
+  dim: 224
+}
+input_shape {
+  dim: 1
+  dim: 3
+}
+layer {
+  name: "conv1_1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1_1"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu1_1"
+  type: "ReLU"
+  bottom: "conv1_1"
+  top: "conv1_1"
+}
+layer {
+  name: "conv1_2"
+  type: "Convolution"
+  bottom: "conv1_1"
+  top: "conv1_2"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu1_2"
+  type: "ReLU"
+  bottom: "conv1_2"
+  top: "conv1_2"
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1_2"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv2_1"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2_1"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu2_1"
+  type: "ReLU"
+  bottom: "conv2_1"
+  top: "conv2_1"
+}
+layer {
+  name: "conv2_2"
+  type: "Convolution"
+  bottom: "conv2_1"
+  top: "conv2_2"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu2_2"
+  type: "ReLU"
+  bottom: "conv2_2"
+  top: "conv2_2"
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2_2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv3_1"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu3_1"
+  type: "ReLU"
+  bottom: "conv3_1"
+  top: "conv3_1"
+}
+layer {
+  name: "conv3_2"
+  type: "Convolution"
+  bottom: "conv3_1"
+  top: "conv3_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu3_2"
+  type: "ReLU"
+  bottom: "conv3_2"
+  top: "conv3_2"
+}
+layer {
+  name: "conv3_3"
+  type: "Convolution"
+  bottom: "conv3_2"
+  top: "conv3_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu3_3"
+  type: "ReLU"
+  bottom: "conv3_3"
+  top: "conv3_3"
+}
+layer {
+  name: "pool3"
+  type: "Pooling"
+  bottom: "conv3_3"
+  top: "pool3"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv4_1"
+  type: "Convolution"
+  bottom: "pool3"
+  top: "conv4_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu4_1"
+  type: "ReLU"
+  bottom: "conv4_1"
+  top: "conv4_1"
+}
+layer {
+  name: "conv4_2"
+  type: "Convolution"
+  bottom: "conv4_1"
+  top: "conv4_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu4_2"
+  type: "ReLU"
+  bottom: "conv4_2"
+  top: "conv4_2"
+}
+layer {
+  name: "conv4_3"
+  type: "Convolution"
+  bottom: "conv4_2"
+  top: "conv4_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu4_3"
+  type: "ReLU"
+  bottom: "conv4_3"
+  top: "conv4_3"
+}
+layer {
+  name: "pool4"
+  type: "Pooling"
+  bottom: "conv4_3"
+  top: "pool4"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv5_1"
+  type: "Convolution"
+  bottom: "pool4"
+  top: "conv5_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu5_1"
+  type: "ReLU"
+  bottom: "conv5_1"
+  top: "conv5_1"
+}
+layer {
+  name: "conv5_2"
+  type: "Convolution"
+  bottom: "conv5_1"
+  top: "conv5_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu5_2"
+  type: "ReLU"
+  bottom: "conv5_2"
+  top: "conv5_2"
+}
+layer {
+  name: "conv5_3"
+  type: "Convolution"
+  bottom: "conv5_2"
+  top: "conv5_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  name: "relu5_3"
+  type: "ReLU"
+  bottom: "conv5_3"
+  top: "conv5_3"
+}
+layer {
+  name: "rpn_conv/3x3"
+  type: "Convolution"
+  bottom: "conv5_3"
+  top: "rpn/output"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "rpn_relu/3x3"
+  type: "ReLU"
+  bottom: "rpn/output"
+  top: "rpn/output"
+}
+layer {
+  name: "rpn_cls_score"
+  type: "Convolution"
+  bottom: "rpn/output"
+  top: "rpn_cls_score"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 24
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "rpn_bbox_pred"
+  type: "Convolution"
+  bottom: "rpn/output"
+  top: "rpn_bbox_pred"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 48
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "rpn_cls_score_reshape"
+  type: "Reshape"
+  bottom: "rpn_cls_score"
+  top: "rpn_cls_score_reshape"
+  reshape_param {
+    shape {
+      dim: 0
+      dim: 2
+      dim: -1
+      dim: 0
+    }
+  }
+}
+layer {
+  name: "rpn_cls_prob"
+  type: "Softmax"
+  bottom: "rpn_cls_score_reshape"
+  top: "rpn_cls_prob"
+}
+layer {
+  name: "rpn_cls_prob_reshape"
+  type: "Reshape"
+  bottom: "rpn_cls_prob"
+  top: "rpn_cls_prob_reshape"
+  reshape_param {
+    shape {
+      dim: 0
+      dim: 24
+      dim: -1
+      dim: 0
+    }
+  }
+}
+layer {
+  name: "proposal"
+  type: "Python"
+  bottom: "rpn_cls_prob_reshape"
+  bottom: "rpn_bbox_pred"
+  bottom: "im_info"
+  top: "rois"
+  python_param {
+    module: "rpn.proposal_layer"
+    layer: "ProposalLayer"
+    param_str: "\'feat_stride\': 16 \n\'scales\': !!python/tuple [4, 8, 16, 32]"
+  }
+}
+layer {
+  name: "roi_pool5"
+  type: "ROIPooling"
+  bottom: "conv5_3"
+  bottom: "rois"
+  top: "pool5"
+  roi_pooling_param {
+    pooled_h: 7
+    pooled_w: 7
+    spatial_scale: 0.0625
+  }
+}
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "pool5"
+  top: "fc6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  name: "relu6"
+  type: "ReLU"
+  bottom: "fc6"
+  top: "fc6"
+}
+layer {
+  name: "fc7"
+  type: "InnerProduct"
+  bottom: "fc6"
+  top: "fc7"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  name: "relu7"
+  type: "ReLU"
+  bottom: "fc7"
+  top: "fc7"
+}
+layer {
+  name: "cls_score"
+  type: "InnerProduct"
+  bottom: "fc7"
+  top: "cls_score"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 81
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "bbox_pred"
+  type: "InnerProduct"
+  bottom: "fc7"
+  top: "bbox_pred"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 324
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "cls_prob"
+  type: "Softmax"
+  bottom: "cls_score"
+  top: "cls_prob"
+}
+I0412 02:27:09.633760  9520 net.cpp:413] Input 0 -> data
+I0412 02:27:09.641604  9520 net.cpp:413] Input 1 -> im_info
+I0412 02:27:09.641670  9520 layer_factory.hpp:77] Creating layer conv1_1
+I0412 02:27:09.641726  9520 net.cpp:106] Creating Layer conv1_1
+I0412 02:27:09.641742  9520 net.cpp:454] conv1_1 <- data
+I0412 02:27:09.641749  9520 net.cpp:411] conv1_1 -> conv1_1
+I0412 02:27:09.850564  9520 net.cpp:150] Setting up conv1_1
+I0412 02:27:09.850591  9520 net.cpp:157] Top shape: 1 64 224 224 (3211264)
+I0412 02:27:09.850615  9520 net.cpp:165] Memory required for data: 12845056
+I0412 02:27:09.850628  9520 layer_factory.hpp:77] Creating layer relu1_1
+I0412 02:27:09.850658  9520 net.cpp:106] Creating Layer relu1_1
+I0412 02:27:09.850663  9520 net.cpp:454] relu1_1 <- conv1_1
+I0412 02:27:09.850684  9520 net.cpp:397] relu1_1 -> conv1_1 (in-place)
+I0412 02:27:09.851038  9520 net.cpp:150] Setting up relu1_1
+I0412 02:27:09.851049  9520 net.cpp:157] Top shape: 1 64 224 224 (3211264)
+I0412 02:27:09.851053  9520 net.cpp:165] Memory required for data: 25690112
+I0412 02:27:09.851057  9520 layer_factory.hpp:77] Creating layer conv1_2
+I0412 02:27:09.851084  9520 net.cpp:106] Creating Layer conv1_2
+I0412 02:27:09.851088  9520 net.cpp:454] conv1_2 <- conv1_1
+I0412 02:27:09.851094  9520 net.cpp:411] conv1_2 -> conv1_2
+I0412 02:27:09.852118  9520 net.cpp:150] Setting up conv1_2
+I0412 02:27:09.852131  9520 net.cpp:157] Top shape: 1 64 224 224 (3211264)
+I0412 02:27:09.852135  9520 net.cpp:165] Memory required for data: 38535168
+I0412 02:27:09.852161  9520 layer_factory.hpp:77] Creating layer relu1_2
+I0412 02:27:09.852175  9520 net.cpp:106] Creating Layer relu1_2
+I0412 02:27:09.852180  9520 net.cpp:454] relu1_2 <- conv1_2
+I0412 02:27:09.852202  9520 net.cpp:397] relu1_2 -> conv1_2 (in-place)
+I0412 02:27:09.852455  9520 net.cpp:150] Setting up relu1_2
+I0412 02:27:09.852464  9520 net.cpp:157] Top shape: 1 64 224 224 (3211264)
+I0412 02:27:09.852468  9520 net.cpp:165] Memory required for data: 51380224
+I0412 02:27:09.852490  9520 layer_factory.hpp:77] Creating layer pool1
+I0412 02:27:09.852497  9520 net.cpp:106] Creating Layer pool1
+I0412 02:27:09.852501  9520 net.cpp:454] pool1 <- conv1_2
+I0412 02:27:09.852506  9520 net.cpp:411] pool1 -> pool1
+I0412 02:27:09.852582  9520 net.cpp:150] Setting up pool1
+I0412 02:27:09.852591  9520 net.cpp:157] Top shape: 1 64 112 112 (802816)
+I0412 02:27:09.852617  9520 net.cpp:165] Memory required for data: 54591488
+I0412 02:27:09.852622  9520 layer_factory.hpp:77] Creating layer conv2_1
+I0412 02:27:09.852649  9520 net.cpp:106] Creating Layer conv2_1
+I0412 02:27:09.852666  9520 net.cpp:454] conv2_1 <- pool1
+I0412 02:27:09.852674  9520 net.cpp:411] conv2_1 -> conv2_1
+I0412 02:27:09.854163  9520 net.cpp:150] Setting up conv2_1
+I0412 02:27:09.854179  9520 net.cpp:157] Top shape: 1 128 112 112 (1605632)
+I0412 02:27:09.854183  9520 net.cpp:165] Memory required for data: 61014016
+I0412 02:27:09.854210  9520 layer_factory.hpp:77] Creating layer relu2_1
+I0412 02:27:09.854218  9520 net.cpp:106] Creating Layer relu2_1
+I0412 02:27:09.854221  9520 net.cpp:454] relu2_1 <- conv2_1
+I0412 02:27:09.854226  9520 net.cpp:397] relu2_1 -> conv2_1 (in-place)
+I0412 02:27:09.854599  9520 net.cpp:150] Setting up relu2_1
+I0412 02:27:09.854610  9520 net.cpp:157] Top shape: 1 128 112 112 (1605632)
+I0412 02:27:09.854614  9520 net.cpp:165] Memory required for data: 67436544
+I0412 02:27:09.854617  9520 layer_factory.hpp:77] Creating layer conv2_2
+I0412 02:27:09.854643  9520 net.cpp:106] Creating Layer conv2_2
+I0412 02:27:09.854660  9520 net.cpp:454] conv2_2 <- conv2_1
+I0412 02:27:09.854665  9520 net.cpp:411] conv2_2 -> conv2_2
+I0412 02:27:09.855644  9520 net.cpp:150] Setting up conv2_2
+I0412 02:27:09.855664  9520 net.cpp:157] Top shape: 1 128 112 112 (1605632)
+I0412 02:27:09.855669  9520 net.cpp:165] Memory required for data: 73859072
+I0412 02:27:09.855679  9520 layer_factory.hpp:77] Creating layer relu2_2
+I0412 02:27:09.855687  9520 net.cpp:106] Creating Layer relu2_2
+I0412 02:27:09.855710  9520 net.cpp:454] relu2_2 <- conv2_2
+I0412 02:27:09.855715  9520 net.cpp:397] relu2_2 -> conv2_2 (in-place)
+I0412 02:27:09.856101  9520 net.cpp:150] Setting up relu2_2
+I0412 02:27:09.856112  9520 net.cpp:157] Top shape: 1 128 112 112 (1605632)
+I0412 02:27:09.856115  9520 net.cpp:165] Memory required for data: 80281600
+I0412 02:27:09.856122  9520 layer_factory.hpp:77] Creating layer pool2
+I0412 02:27:09.856132  9520 net.cpp:106] Creating Layer pool2
+I0412 02:27:09.856137  9520 net.cpp:454] pool2 <- conv2_2
+I0412 02:27:09.856159  9520 net.cpp:411] pool2 -> pool2
+I0412 02:27:09.856228  9520 net.cpp:150] Setting up pool2
+I0412 02:27:09.856253  9520 net.cpp:157] Top shape: 1 128 56 56 (401408)
+I0412 02:27:09.856257  9520 net.cpp:165] Memory required for data: 81887232
+I0412 02:27:09.856261  9520 layer_factory.hpp:77] Creating layer conv3_1
+I0412 02:27:09.856266  9520 net.cpp:106] Creating Layer conv3_1
+I0412 02:27:09.856297  9520 net.cpp:454] conv3_1 <- pool2
+I0412 02:27:09.856303  9520 net.cpp:411] conv3_1 -> conv3_1
+I0412 02:27:09.857672  9520 net.cpp:150] Setting up conv3_1
+I0412 02:27:09.857687  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.857692  9520 net.cpp:165] Memory required for data: 85098496
+I0412 02:27:09.857703  9520 layer_factory.hpp:77] Creating layer relu3_1
+I0412 02:27:09.857714  9520 net.cpp:106] Creating Layer relu3_1
+I0412 02:27:09.857720  9520 net.cpp:454] relu3_1 <- conv3_1
+I0412 02:27:09.857727  9520 net.cpp:397] relu3_1 -> conv3_1 (in-place)
+I0412 02:27:09.857903  9520 net.cpp:150] Setting up relu3_1
+I0412 02:27:09.857913  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.857916  9520 net.cpp:165] Memory required for data: 88309760
+I0412 02:27:09.857923  9520 layer_factory.hpp:77] Creating layer conv3_2
+I0412 02:27:09.857933  9520 net.cpp:106] Creating Layer conv3_2
+I0412 02:27:09.857939  9520 net.cpp:454] conv3_2 <- conv3_1
+I0412 02:27:09.857946  9520 net.cpp:411] conv3_2 -> conv3_2
+I0412 02:27:09.859997  9520 net.cpp:150] Setting up conv3_2
+I0412 02:27:09.860010  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.860015  9520 net.cpp:165] Memory required for data: 91521024
+I0412 02:27:09.860023  9520 layer_factory.hpp:77] Creating layer relu3_2
+I0412 02:27:09.860045  9520 net.cpp:106] Creating Layer relu3_2
+I0412 02:27:09.860054  9520 net.cpp:454] relu3_2 <- conv3_2
+I0412 02:27:09.860069  9520 net.cpp:397] relu3_2 -> conv3_2 (in-place)
+I0412 02:27:09.860321  9520 net.cpp:150] Setting up relu3_2
+I0412 02:27:09.860333  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.860352  9520 net.cpp:165] Memory required for data: 94732288
+I0412 02:27:09.860357  9520 layer_factory.hpp:77] Creating layer conv3_3
+I0412 02:27:09.860366  9520 net.cpp:106] Creating Layer conv3_3
+I0412 02:27:09.860373  9520 net.cpp:454] conv3_3 <- conv3_2
+I0412 02:27:09.860383  9520 net.cpp:411] conv3_3 -> conv3_3
+I0412 02:27:09.862676  9520 net.cpp:150] Setting up conv3_3
+I0412 02:27:09.862694  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.862714  9520 net.cpp:165] Memory required for data: 97943552
+I0412 02:27:09.862721  9520 layer_factory.hpp:77] Creating layer relu3_3
+I0412 02:27:09.862728  9520 net.cpp:106] Creating Layer relu3_3
+I0412 02:27:09.862735  9520 net.cpp:454] relu3_3 <- conv3_3
+I0412 02:27:09.862743  9520 net.cpp:397] relu3_3 -> conv3_3 (in-place)
+I0412 02:27:09.863075  9520 net.cpp:150] Setting up relu3_3
+I0412 02:27:09.863101  9520 net.cpp:157] Top shape: 1 256 56 56 (802816)
+I0412 02:27:09.863106  9520 net.cpp:165] Memory required for data: 101154816
+I0412 02:27:09.863111  9520 layer_factory.hpp:77] Creating layer pool3
+I0412 02:27:09.863118  9520 net.cpp:106] Creating Layer pool3
+I0412 02:27:09.863122  9520 net.cpp:454] pool3 <- conv3_3
+I0412 02:27:09.863150  9520 net.cpp:411] pool3 -> pool3
+I0412 02:27:09.863212  9520 net.cpp:150] Setting up pool3
+I0412 02:27:09.863220  9520 net.cpp:157] Top shape: 1 256 28 28 (200704)
+I0412 02:27:09.863224  9520 net.cpp:165] Memory required for data: 101957632
+I0412 02:27:09.863227  9520 layer_factory.hpp:77] Creating layer conv4_1
+I0412 02:27:09.863235  9520 net.cpp:106] Creating Layer conv4_1
+I0412 02:27:09.863253  9520 net.cpp:454] conv4_1 <- pool3
+I0412 02:27:09.863262  9520 net.cpp:411] conv4_1 -> conv4_1
+I0412 02:27:09.867018  9520 net.cpp:150] Setting up conv4_1
+I0412 02:27:09.867043  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.867048  9520 net.cpp:165] Memory required for data: 103563264
+I0412 02:27:09.867075  9520 layer_factory.hpp:77] Creating layer relu4_1
+I0412 02:27:09.867084  9520 net.cpp:106] Creating Layer relu4_1
+I0412 02:27:09.867089  9520 net.cpp:454] relu4_1 <- conv4_1
+I0412 02:27:09.867097  9520 net.cpp:397] relu4_1 -> conv4_1 (in-place)
+I0412 02:27:09.867305  9520 net.cpp:150] Setting up relu4_1
+I0412 02:27:09.867314  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.867319  9520 net.cpp:165] Memory required for data: 105168896
+I0412 02:27:09.867322  9520 layer_factory.hpp:77] Creating layer conv4_2
+I0412 02:27:09.867333  9520 net.cpp:106] Creating Layer conv4_2
+I0412 02:27:09.867353  9520 net.cpp:454] conv4_2 <- conv4_1
+I0412 02:27:09.867377  9520 net.cpp:411] conv4_2 -> conv4_2
+I0412 02:27:09.873363  9520 net.cpp:150] Setting up conv4_2
+I0412 02:27:09.873379  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.873384  9520 net.cpp:165] Memory required for data: 106774528
+I0412 02:27:09.873397  9520 layer_factory.hpp:77] Creating layer relu4_2
+I0412 02:27:09.873407  9520 net.cpp:106] Creating Layer relu4_2
+I0412 02:27:09.873428  9520 net.cpp:454] relu4_2 <- conv4_2
+I0412 02:27:09.873438  9520 net.cpp:397] relu4_2 -> conv4_2 (in-place)
+I0412 02:27:09.873711  9520 net.cpp:150] Setting up relu4_2
+I0412 02:27:09.873723  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.873726  9520 net.cpp:165] Memory required for data: 108380160
+I0412 02:27:09.873730  9520 layer_factory.hpp:77] Creating layer conv4_3
+I0412 02:27:09.873775  9520 net.cpp:106] Creating Layer conv4_3
+I0412 02:27:09.873780  9520 net.cpp:454] conv4_3 <- conv4_2
+I0412 02:27:09.873787  9520 net.cpp:411] conv4_3 -> conv4_3
+I0412 02:27:09.881728  9520 net.cpp:150] Setting up conv4_3
+I0412 02:27:09.881752  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.881773  9520 net.cpp:165] Memory required for data: 109985792
+I0412 02:27:09.881783  9520 layer_factory.hpp:77] Creating layer relu4_3
+I0412 02:27:09.881793  9520 net.cpp:106] Creating Layer relu4_3
+I0412 02:27:09.881798  9520 net.cpp:454] relu4_3 <- conv4_3
+I0412 02:27:09.881820  9520 net.cpp:397] relu4_3 -> conv4_3 (in-place)
+I0412 02:27:09.882326  9520 net.cpp:150] Setting up relu4_3
+I0412 02:27:09.882339  9520 net.cpp:157] Top shape: 1 512 28 28 (401408)
+I0412 02:27:09.882342  9520 net.cpp:165] Memory required for data: 111591424
+I0412 02:27:09.882346  9520 layer_factory.hpp:77] Creating layer pool4
+I0412 02:27:09.882367  9520 net.cpp:106] Creating Layer pool4
+I0412 02:27:09.882388  9520 net.cpp:454] pool4 <- conv4_3
+I0412 02:27:09.882395  9520 net.cpp:411] pool4 -> pool4
+I0412 02:27:09.882470  9520 net.cpp:150] Setting up pool4
+I0412 02:27:09.882479  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.882483  9520 net.cpp:165] Memory required for data: 111992832
+I0412 02:27:09.882491  9520 layer_factory.hpp:77] Creating layer conv5_1
+I0412 02:27:09.882525  9520 net.cpp:106] Creating Layer conv5_1
+I0412 02:27:09.882530  9520 net.cpp:454] conv5_1 <- pool4
+I0412 02:27:09.882539  9520 net.cpp:411] conv5_1 -> conv5_1
+I0412 02:27:09.888511  9520 net.cpp:150] Setting up conv5_1
+I0412 02:27:09.888531  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.888553  9520 net.cpp:165] Memory required for data: 112394240
+I0412 02:27:09.888576  9520 layer_factory.hpp:77] Creating layer relu5_1
+I0412 02:27:09.888583  9520 net.cpp:106] Creating Layer relu5_1
+I0412 02:27:09.888602  9520 net.cpp:454] relu5_1 <- conv5_1
+I0412 02:27:09.888609  9520 net.cpp:397] relu5_1 -> conv5_1 (in-place)
+I0412 02:27:09.888957  9520 net.cpp:150] Setting up relu5_1
+I0412 02:27:09.888967  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.888972  9520 net.cpp:165] Memory required for data: 112795648
+I0412 02:27:09.888975  9520 layer_factory.hpp:77] Creating layer conv5_2
+I0412 02:27:09.888983  9520 net.cpp:106] Creating Layer conv5_2
+I0412 02:27:09.889008  9520 net.cpp:454] conv5_2 <- conv5_1
+I0412 02:27:09.889014  9520 net.cpp:411] conv5_2 -> conv5_2
+I0412 02:27:09.894032  9520 net.cpp:150] Setting up conv5_2
+I0412 02:27:09.894052  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.894057  9520 net.cpp:165] Memory required for data: 113197056
+I0412 02:27:09.894083  9520 layer_factory.hpp:77] Creating layer relu5_2
+I0412 02:27:09.894090  9520 net.cpp:106] Creating Layer relu5_2
+I0412 02:27:09.894094  9520 net.cpp:454] relu5_2 <- conv5_2
+I0412 02:27:09.894119  9520 net.cpp:397] relu5_2 -> conv5_2 (in-place)
+I0412 02:27:09.894938  9520 net.cpp:150] Setting up relu5_2
+I0412 02:27:09.894949  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.894954  9520 net.cpp:165] Memory required for data: 113598464
+I0412 02:27:09.894975  9520 layer_factory.hpp:77] Creating layer conv5_3
+I0412 02:27:09.894996  9520 net.cpp:106] Creating Layer conv5_3
+I0412 02:27:09.895000  9520 net.cpp:454] conv5_3 <- conv5_2
+I0412 02:27:09.895025  9520 net.cpp:411] conv5_3 -> conv5_3
+I0412 02:27:09.901262  9520 net.cpp:150] Setting up conv5_3
+I0412 02:27:09.901298  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.901303  9520 net.cpp:165] Memory required for data: 113999872
+I0412 02:27:09.901310  9520 layer_factory.hpp:77] Creating layer relu5_3
+I0412 02:27:09.901319  9520 net.cpp:106] Creating Layer relu5_3
+I0412 02:27:09.901324  9520 net.cpp:454] relu5_3 <- conv5_3
+I0412 02:27:09.901329  9520 net.cpp:397] relu5_3 -> conv5_3 (in-place)
+I0412 02:27:09.901700  9520 net.cpp:150] Setting up relu5_3
+I0412 02:27:09.901711  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.901715  9520 net.cpp:165] Memory required for data: 114401280
+I0412 02:27:09.901718  9520 layer_factory.hpp:77] Creating layer conv5_3_relu5_3_0_split
+I0412 02:27:09.901736  9520 net.cpp:106] Creating Layer conv5_3_relu5_3_0_split
+I0412 02:27:09.901741  9520 net.cpp:454] conv5_3_relu5_3_0_split <- conv5_3
+I0412 02:27:09.901746  9520 net.cpp:411] conv5_3_relu5_3_0_split -> conv5_3_relu5_3_0_split_0
+I0412 02:27:09.901772  9520 net.cpp:411] conv5_3_relu5_3_0_split -> conv5_3_relu5_3_0_split_1
+I0412 02:27:09.901877  9520 net.cpp:150] Setting up conv5_3_relu5_3_0_split
+I0412 02:27:09.901901  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.901904  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.901926  9520 net.cpp:165] Memory required for data: 115204096
+I0412 02:27:09.901932  9520 layer_factory.hpp:77] Creating layer rpn_conv/3x3
+I0412 02:27:09.901957  9520 net.cpp:106] Creating Layer rpn_conv/3x3
+I0412 02:27:09.901980  9520 net.cpp:454] rpn_conv/3x3 <- conv5_3_relu5_3_0_split_0
+I0412 02:27:09.901988  9520 net.cpp:411] rpn_conv/3x3 -> rpn/output
+I0412 02:27:09.964449  9520 net.cpp:150] Setting up rpn_conv/3x3
+I0412 02:27:09.964473  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.964478  9520 net.cpp:165] Memory required for data: 115605504
+I0412 02:27:09.964504  9520 layer_factory.hpp:77] Creating layer rpn_relu/3x3
+I0412 02:27:09.964529  9520 net.cpp:106] Creating Layer rpn_relu/3x3
+I0412 02:27:09.964555  9520 net.cpp:454] rpn_relu/3x3 <- rpn/output
+I0412 02:27:09.964561  9520 net.cpp:397] rpn_relu/3x3 -> rpn/output (in-place)
+I0412 02:27:09.964831  9520 net.cpp:150] Setting up rpn_relu/3x3
+I0412 02:27:09.964840  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.964845  9520 net.cpp:165] Memory required for data: 116006912
+I0412 02:27:09.964867  9520 layer_factory.hpp:77] Creating layer rpn/output_rpn_relu/3x3_0_split
+I0412 02:27:09.964874  9520 net.cpp:106] Creating Layer rpn/output_rpn_relu/3x3_0_split
+I0412 02:27:09.964876  9520 net.cpp:454] rpn/output_rpn_relu/3x3_0_split <- rpn/output
+I0412 02:27:09.964881  9520 net.cpp:411] rpn/output_rpn_relu/3x3_0_split -> rpn/output_rpn_relu/3x3_0_split_0
+I0412 02:27:09.964908  9520 net.cpp:411] rpn/output_rpn_relu/3x3_0_split -> rpn/output_rpn_relu/3x3_0_split_1
+I0412 02:27:09.965006  9520 net.cpp:150] Setting up rpn/output_rpn_relu/3x3_0_split
+I0412 02:27:09.965031  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.965056  9520 net.cpp:157] Top shape: 1 512 14 14 (100352)
+I0412 02:27:09.965060  9520 net.cpp:165] Memory required for data: 116809728
+I0412 02:27:09.965064  9520 layer_factory.hpp:77] Creating layer rpn_cls_score
+I0412 02:27:09.965102  9520 net.cpp:106] Creating Layer rpn_cls_score
+I0412 02:27:09.965106  9520 net.cpp:454] rpn_cls_score <- rpn/output_rpn_relu/3x3_0_split_0
+I0412 02:27:09.965131  9520 net.cpp:411] rpn_cls_score -> rpn_cls_score
+I0412 02:27:09.966387  9520 net.cpp:150] Setting up rpn_cls_score
+I0412 02:27:09.966400  9520 net.cpp:157] Top shape: 1 24 14 14 (4704)
+I0412 02:27:09.966404  9520 net.cpp:165] Memory required for data: 116828544
+I0412 02:27:09.966428  9520 layer_factory.hpp:77] Creating layer rpn_bbox_pred
+I0412 02:27:09.966437  9520 net.cpp:106] Creating Layer rpn_bbox_pred
+I0412 02:27:09.966441  9520 net.cpp:454] rpn_bbox_pred <- rpn/output_rpn_relu/3x3_0_split_1
+I0412 02:27:09.966466  9520 net.cpp:411] rpn_bbox_pred -> rpn_bbox_pred
+I0412 02:27:09.967943  9520 net.cpp:150] Setting up rpn_bbox_pred
+I0412 02:27:09.967955  9520 net.cpp:157] Top shape: 1 48 14 14 (9408)
+I0412 02:27:09.967959  9520 net.cpp:165] Memory required for data: 116866176
+I0412 02:27:09.967988  9520 layer_factory.hpp:77] Creating layer rpn_cls_score_reshape
+I0412 02:27:09.967998  9520 net.cpp:106] Creating Layer rpn_cls_score_reshape
+I0412 02:27:09.968019  9520 net.cpp:454] rpn_cls_score_reshape <- rpn_cls_score
+I0412 02:27:09.968024  9520 net.cpp:411] rpn_cls_score_reshape -> rpn_cls_score_reshape
+I0412 02:27:09.968102  9520 net.cpp:150] Setting up rpn_cls_score_reshape
+I0412 02:27:09.968123  9520 net.cpp:157] Top shape: 1 2 168 14 (4704)
+I0412 02:27:09.968127  9520 net.cpp:165] Memory required for data: 116884992
+I0412 02:27:09.968152  9520 layer_factory.hpp:77] Creating layer rpn_cls_prob
+I0412 02:27:09.968158  9520 net.cpp:106] Creating Layer rpn_cls_prob
+I0412 02:27:09.968174  9520 net.cpp:454] rpn_cls_prob <- rpn_cls_score_reshape
+I0412 02:27:09.968180  9520 net.cpp:411] rpn_cls_prob -> rpn_cls_prob
+I0412 02:27:09.968590  9520 net.cpp:150] Setting up rpn_cls_prob
+I0412 02:27:09.968600  9520 net.cpp:157] Top shape: 1 2 168 14 (4704)
+I0412 02:27:09.968602  9520 net.cpp:165] Memory required for data: 116903808
+I0412 02:27:09.968606  9520 layer_factory.hpp:77] Creating layer rpn_cls_prob_reshape
+I0412 02:27:09.968629  9520 net.cpp:106] Creating Layer rpn_cls_prob_reshape
+I0412 02:27:09.968633  9520 net.cpp:454] rpn_cls_prob_reshape <- rpn_cls_prob
+I0412 02:27:09.968652  9520 net.cpp:411] rpn_cls_prob_reshape -> rpn_cls_prob_reshape
+I0412 02:27:09.968706  9520 net.cpp:150] Setting up rpn_cls_prob_reshape
+I0412 02:27:09.968714  9520 net.cpp:157] Top shape: 1 24 14 14 (4704)
+I0412 02:27:09.968719  9520 net.cpp:165] Memory required for data: 116922624
+I0412 02:27:09.968742  9520 layer_factory.hpp:77] Creating layer proposal
+I0412 02:27:09.996337  9520 net.cpp:106] Creating Layer proposal
+I0412 02:27:09.996362  9520 net.cpp:454] proposal <- rpn_cls_prob_reshape
+I0412 02:27:09.996371  9520 net.cpp:454] proposal <- rpn_bbox_pred
+I0412 02:27:09.996378  9520 net.cpp:454] proposal <- im_info
+I0412 02:27:09.996398  9520 net.cpp:411] proposal -> rois
+I0412 02:27:09.998304  9520 net.cpp:150] Setting up proposal
+I0412 02:27:09.998323  9520 net.cpp:157] Top shape: 1 5 (5)
+I0412 02:27:09.998329  9520 net.cpp:165] Memory required for data: 116922644
+I0412 02:27:09.998334  9520 layer_factory.hpp:77] Creating layer roi_pool5
+I0412 02:27:09.998345  9520 net.cpp:106] Creating Layer roi_pool5
+I0412 02:27:09.998353  9520 net.cpp:454] roi_pool5 <- conv5_3_relu5_3_0_split_1
+I0412 02:27:09.998378  9520 net.cpp:454] roi_pool5 <- rois
+I0412 02:27:09.998400  9520 net.cpp:411] roi_pool5 -> pool5
+I0412 02:27:09.998410  9520 roi_pooling_layer.cpp:30] Spatial scale: 0.0625
+I0412 02:27:09.998524  9520 net.cpp:150] Setting up roi_pool5
+I0412 02:27:09.998534  9520 net.cpp:157] Top shape: 1 512 7 7 (25088)
+I0412 02:27:09.998538  9520 net.cpp:165] Memory required for data: 117022996
+I0412 02:27:09.998558  9520 layer_factory.hpp:77] Creating layer fc6
+I0412 02:27:09.998584  9520 net.cpp:106] Creating Layer fc6
+I0412 02:27:09.998608  9520 net.cpp:454] fc6 <- pool5
+I0412 02:27:09.998615  9520 net.cpp:411] fc6 -> fc6
+I0412 02:27:10.532855  9520 net.cpp:150] Setting up fc6
+I0412 02:27:10.532905  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.532915  9520 net.cpp:165] Memory required for data: 117039380
+I0412 02:27:10.532935  9520 layer_factory.hpp:77] Creating layer relu6
+I0412 02:27:10.532981  9520 net.cpp:106] Creating Layer relu6
+I0412 02:27:10.532987  9520 net.cpp:454] relu6 <- fc6
+I0412 02:27:10.533006  9520 net.cpp:397] relu6 -> fc6 (in-place)
+I0412 02:27:10.533543  9520 net.cpp:150] Setting up relu6
+I0412 02:27:10.533553  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.533557  9520 net.cpp:165] Memory required for data: 117055764
+I0412 02:27:10.533579  9520 layer_factory.hpp:77] Creating layer fc7
+I0412 02:27:10.533601  9520 net.cpp:106] Creating Layer fc7
+I0412 02:27:10.533607  9520 net.cpp:454] fc7 <- fc6
+I0412 02:27:10.533632  9520 net.cpp:411] fc7 -> fc7
+I0412 02:27:10.827903  9520 net.cpp:150] Setting up fc7
+I0412 02:27:10.827934  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.827941  9520 net.cpp:165] Memory required for data: 117072148
+I0412 02:27:10.827976  9520 layer_factory.hpp:77] Creating layer relu7
+I0412 02:27:10.827987  9520 net.cpp:106] Creating Layer relu7
+I0412 02:27:10.827992  9520 net.cpp:454] relu7 <- fc7
+I0412 02:27:10.828016  9520 net.cpp:397] relu7 -> fc7 (in-place)
+I0412 02:27:10.828531  9520 net.cpp:150] Setting up relu7
+I0412 02:27:10.828543  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.828550  9520 net.cpp:165] Memory required for data: 117088532
+I0412 02:27:10.828555  9520 layer_factory.hpp:77] Creating layer fc7_relu7_0_split
+I0412 02:27:10.828583  9520 net.cpp:106] Creating Layer fc7_relu7_0_split
+I0412 02:27:10.828601  9520 net.cpp:454] fc7_relu7_0_split <- fc7
+I0412 02:27:10.828606  9520 net.cpp:411] fc7_relu7_0_split -> fc7_relu7_0_split_0
+I0412 02:27:10.828613  9520 net.cpp:411] fc7_relu7_0_split -> fc7_relu7_0_split_1
+I0412 02:27:10.828660  9520 net.cpp:150] Setting up fc7_relu7_0_split
+I0412 02:27:10.828668  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.828676  9520 net.cpp:157] Top shape: 1 4096 (4096)
+I0412 02:27:10.828680  9520 net.cpp:165] Memory required for data: 117121300
+I0412 02:27:10.828685  9520 layer_factory.hpp:77] Creating layer cls_score
+I0412 02:27:10.828693  9520 net.cpp:106] Creating Layer cls_score
+I0412 02:27:10.828697  9520 net.cpp:454] cls_score <- fc7_relu7_0_split_0
+I0412 02:27:10.828706  9520 net.cpp:411] cls_score -> cls_score
+I0412 02:27:10.837570  9520 net.cpp:150] Setting up cls_score
+I0412 02:27:10.837582  9520 net.cpp:157] Top shape: 1 81 (81)
+I0412 02:27:10.837589  9520 net.cpp:165] Memory required for data: 117121624
+I0412 02:27:10.837613  9520 layer_factory.hpp:77] Creating layer bbox_pred
+I0412 02:27:10.837620  9520 net.cpp:106] Creating Layer bbox_pred
+I0412 02:27:10.837625  9520 net.cpp:454] bbox_pred <- fc7_relu7_0_split_1
+I0412 02:27:10.837630  9520 net.cpp:411] bbox_pred -> bbox_pred
+I0412 02:27:10.873766  9520 net.cpp:150] Setting up bbox_pred
+I0412 02:27:10.873790  9520 net.cpp:157] Top shape: 1 324 (324)
+I0412 02:27:10.873796  9520 net.cpp:165] Memory required for data: 117122920
+I0412 02:27:10.873808  9520 layer_factory.hpp:77] Creating layer cls_prob
+I0412 02:27:10.873819  9520 net.cpp:106] Creating Layer cls_prob
+I0412 02:27:10.873827  9520 net.cpp:454] cls_prob <- cls_score
+I0412 02:27:10.873855  9520 net.cpp:411] cls_prob -> cls_prob
+I0412 02:27:10.874186  9520 net.cpp:150] Setting up cls_prob
+I0412 02:27:10.874197  9520 net.cpp:157] Top shape: 1 81 (81)
+I0412 02:27:10.874203  9520 net.cpp:165] Memory required for data: 117123244
+I0412 02:27:10.874208  9520 net.cpp:228] cls_prob does not need backward computation.
+I0412 02:27:10.874214  9520 net.cpp:228] bbox_pred does not need backward computation.
+I0412 02:27:10.874220  9520 net.cpp:228] cls_score does not need backward computation.
+I0412 02:27:10.874224  9520 net.cpp:228] fc7_relu7_0_split does not need backward computation.
+I0412 02:27:10.874229  9520 net.cpp:228] relu7 does not need backward computation.
+I0412 02:27:10.874235  9520 net.cpp:228] fc7 does not need backward computation.
+I0412 02:27:10.874240  9520 net.cpp:228] relu6 does not need backward computation.
+I0412 02:27:10.874244  9520 net.cpp:228] fc6 does not need backward computation.
+I0412 02:27:10.874249  9520 net.cpp:228] roi_pool5 does not need backward computation.
+I0412 02:27:10.874267  9520 net.cpp:228] proposal does not need backward computation.
+I0412 02:27:10.874272  9520 net.cpp:228] rpn_cls_prob_reshape does not need backward computation.
+I0412 02:27:10.874279  9520 net.cpp:228] rpn_cls_prob does not need backward computation.
+I0412 02:27:10.874284  9520 net.cpp:228] rpn_cls_score_reshape does not need backward computation.
+I0412 02:27:10.874287  9520 net.cpp:228] rpn_bbox_pred does not need backward computation.
+I0412 02:27:10.874294  9520 net.cpp:228] rpn_cls_score does not need backward computation.
+I0412 02:27:10.874300  9520 net.cpp:228] rpn/output_rpn_relu/3x3_0_split does not need backward computation.
+I0412 02:27:10.874310  9520 net.cpp:228] rpn_relu/3x3 does not need backward computation.
+I0412 02:27:10.874315  9520 net.cpp:228] rpn_conv/3x3 does not need backward computation.
+I0412 02:27:10.874318  9520 net.cpp:228] conv5_3_relu5_3_0_split does not need backward computation.
+I0412 02:27:10.874322  9520 net.cpp:228] relu5_3 does not need backward computation.
+I0412 02:27:10.874325  9520 net.cpp:228] conv5_3 does not need backward computation.
+I0412 02:27:10.874330  9520 net.cpp:228] relu5_2 does not need backward computation.
+I0412 02:27:10.874336  9520 net.cpp:228] conv5_2 does not need backward computation.
+I0412 02:27:10.874339  9520 net.cpp:228] relu5_1 does not need backward computation.
+I0412 02:27:10.874343  9520 net.cpp:228] conv5_1 does not need backward computation.
+I0412 02:27:10.874349  9520 net.cpp:228] pool4 does not need backward computation.
+I0412 02:27:10.874353  9520 net.cpp:228] relu4_3 does not need backward computation.
+I0412 02:27:10.874357  9520 net.cpp:228] conv4_3 does not need backward computation.
+I0412 02:27:10.874363  9520 net.cpp:228] relu4_2 does not need backward computation.
+I0412 02:27:10.874380  9520 net.cpp:228] conv4_2 does not need backward computation.
+I0412 02:27:10.874384  9520 net.cpp:228] relu4_1 does not need backward computation.
+I0412 02:27:10.874388  9520 net.cpp:228] conv4_1 does not need backward computation.
+I0412 02:27:10.874394  9520 net.cpp:228] pool3 does not need backward computation.
+I0412 02:27:10.874398  9520 net.cpp:228] relu3_3 does not need backward computation.
+I0412 02:27:10.874402  9520 net.cpp:228] conv3_3 does not need backward computation.
+I0412 02:27:10.874408  9520 net.cpp:228] relu3_2 does not need backward computation.
+I0412 02:27:10.874413  9520 net.cpp:228] conv3_2 does not need backward computation.
+I0412 02:27:10.874416  9520 net.cpp:228] relu3_1 does not need backward computation.
+I0412 02:27:10.874421  9520 net.cpp:228] conv3_1 does not need backward computation.
+I0412 02:27:10.874426  9520 net.cpp:228] pool2 does not need backward computation.
+I0412 02:27:10.874430  9520 net.cpp:228] relu2_2 does not need backward computation.
+I0412 02:27:10.874449  9520 net.cpp:228] conv2_2 does not need backward computation.
+I0412 02:27:10.874454  9520 net.cpp:228] relu2_1 does not need backward computation.
+I0412 02:27:10.874457  9520 net.cpp:228] conv2_1 does not need backward computation.
+I0412 02:27:10.874462  9520 net.cpp:228] pool1 does not need backward computation.
+I0412 02:27:10.874466  9520 net.cpp:228] relu1_2 does not need backward computation.
+I0412 02:27:10.874470  9520 net.cpp:228] conv1_2 does not need backward computation.
+I0412 02:27:10.874474  9520 net.cpp:228] relu1_1 does not need backward computation.
+I0412 02:27:10.874480  9520 net.cpp:228] conv1_1 does not need backward computation.
+I0412 02:27:10.874485  9520 net.cpp:270] This network produces output bbox_pred
+I0412 02:27:10.874487  9520 net.cpp:270] This network produces output cls_prob
+I0412 02:27:10.874516  9520 net.cpp:283] Network initialization done.
+[libprotobuf WARNING google/protobuf/io/coded_stream.cc:505] Reading dangerously large protocol message.  If the message turns out to be larger than 2147483647 bytes, parsing will be halted for security reasons.  To increase the limit (or to disable these warnings), see CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.
+[libprotobuf WARNING google/protobuf/io/coded_stream.cc:78] The total number of bytes read was 553272331
+I0412 02:27:26.095293  9520 net.cpp:816] Ignoring source layer input-data
+I0412 02:27:26.097429  9520 net.cpp:816] Ignoring source layer data_input-data_0_split
+I0412 02:27:26.097434  9520 net.cpp:816] Ignoring source layer im_info_input-data_1_split
+I0412 02:27:26.097436  9520 net.cpp:816] Ignoring source layer gt_boxes_input-data_2_split
+I0412 02:27:26.116025  9520 net.cpp:816] Ignoring source layer rpn_cls_score_rpn_cls_score_0_split
+I0412 02:27:26.116091  9520 net.cpp:816] Ignoring source layer rpn_bbox_pred_rpn_bbox_pred_0_split
+I0412 02:27:26.116096  9520 net.cpp:816] Ignoring source layer rpn_cls_score_reshape_rpn_cls_score_reshape_0_split
+I0412 02:27:26.116118  9520 net.cpp:816] Ignoring source layer rpn-data
+I0412 02:27:26.116122  9520 net.cpp:816] Ignoring source layer rpn_loss_cls
+I0412 02:27:26.116124  9520 net.cpp:816] Ignoring source layer rpn_loss_bbox
+I0412 02:27:26.116148  9520 net.cpp:816] Ignoring source layer roi-data
+I0412 02:27:26.229064  9520 net.cpp:816] Ignoring source layer loss_cls
+I0412 02:27:26.229086  9520 net.cpp:816] Ignoring source layer loss_bbox
+
+
+Loaded network /mnt/c/Users/Lavenger/git/py-faster-rcnn/data/faster_rcnn_models/coco_vgg16_faster_rcnn_final.caffemodel.original
+data : (1, 3, 224, 224)
+im_info : (1, 3)
+conv1_1 : (1, 64, 224, 224)
+conv1_2 : (1, 64, 224, 224)
+pool1 : (1, 64, 112, 112)
+conv2_1 : (1, 128, 112, 112)
+conv2_2 : (1, 128, 112, 112)
+pool2 : (1, 128, 56, 56)
+conv3_1 : (1, 256, 56, 56)
+conv3_2 : (1, 256, 56, 56)
+conv3_3 : (1, 256, 56, 56)
+pool3 : (1, 256, 28, 28)
+conv4_1 : (1, 512, 28, 28)
+conv4_2 : (1, 512, 28, 28)
+conv4_3 : (1, 512, 28, 28)
+pool4 : (1, 512, 14, 14)
+conv5_1 : (1, 512, 14, 14)
+conv5_2 : (1, 512, 14, 14)
+conv5_3 : (1, 512, 14, 14)
+conv5_3_relu5_3_0_split_0 : (1, 512, 14, 14)
+conv5_3_relu5_3_0_split_1 : (1, 512, 14, 14)
+rpn/output : (1, 512, 14, 14)
+rpn/output_rpn_relu/3x3_0_split_0 : (1, 512, 14, 14)
+rpn/output_rpn_relu/3x3_0_split_1 : (1, 512, 14, 14)
+rpn_cls_score : (1, 24, 14, 14)
+rpn_bbox_pred : (1, 48, 14, 14)
+rpn_cls_score_reshape : (1, 2, 168, 14)
+rpn_cls_prob : (1, 2, 168, 14)
+rpn_cls_prob_reshape : (1, 24, 14, 14)
+rois : (1, 5)
+pool5 : (1, 512, 7, 7)
+fc6 : (1, 4096)
+fc7 : (1, 4096)
+fc7_relu7_0_split_0 : (1, 4096)
+fc7_relu7_0_split_1 : (1, 4096)
+cls_score : (1, 81)
+bbox_pred : (1, 324)
+cls_prob : (1, 81)
+40504  Will be processed 
+Demo for data/demo/COCO_val2014_000000000042.jpg
+Detection took 0.469s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000000073.jpg
+Detection took 0.427s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000074.jpg
+Detection took 0.562s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000000133.jpg
+Detection took 0.434s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000000136.jpg
+Detection took 0.574s for 238 object proposals
+Demo for data/demo/COCO_val2014_000000000139.jpg
+Detection took 0.599s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000143.jpg
+Detection took 0.421s for 283 object proposals
+Demo for data/demo/COCO_val2014_000000000164.jpg
+Detection took 0.460s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000192.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000196.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000208.jpg
+Detection took 0.538s for 183 object proposals
+Demo for data/demo/COCO_val2014_000000000241.jpg
+Detection took 0.459s for 300 object proposals
+/home/takirala/anaconda2/lib/python2.7/site-packages/matplotlib/pyplot.py:516: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  max_open_warning, RuntimeWarning)
+Demo for data/demo/COCO_val2014_000000000257.jpg
+Detection took 0.510s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000283.jpg
+Detection took 0.499s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000000294.jpg
+Detection took 0.542s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000328.jpg
+Detection took 0.612s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000338.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000357.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000359.jpg
+Detection took 0.603s for 255 object proposals
+Demo for data/demo/COCO_val2014_000000000360.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000387.jpg
+Detection took 0.478s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000000395.jpg
+Detection took 0.443s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000397.jpg
+Detection took 0.408s for 153 object proposals
+Demo for data/demo/COCO_val2014_000000000400.jpg
+Detection took 0.403s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000415.jpg
+Detection took 0.564s for 149 object proposals
+Demo for data/demo/COCO_val2014_000000000428.jpg
+Detection took 0.591s for 121 object proposals
+Demo for data/demo/COCO_val2014_000000000459.jpg
+Detection took 0.612s for 241 object proposals
+Demo for data/demo/COCO_val2014_000000000472.jpg
+Detection took 0.419s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000486.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000488.jpg
+Detection took 0.566s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000502.jpg
+Detection took 0.529s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000000520.jpg
+Detection took 0.480s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000536.jpg
+Detection took 0.467s for 292 object proposals
+Demo for data/demo/COCO_val2014_000000000544.jpg
+Detection took 0.550s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000564.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000569.jpg
+Detection took 0.605s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000589.jpg
+Detection took 0.612s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000000590.jpg
+Detection took 0.464s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000599.jpg
+Detection took 0.565s for 118 object proposals
+Demo for data/demo/COCO_val2014_000000000623.jpg
+Detection took 0.430s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000000626.jpg
+Detection took 0.529s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000632.jpg
+Detection took 0.530s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000641.jpg
+Detection took 0.566s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000661.jpg
+Detection took 0.422s for 142 object proposals
+Demo for data/demo/COCO_val2014_000000000675.jpg
+Detection took 0.413s for 263 object proposals
+Demo for data/demo/COCO_val2014_000000000692.jpg
+Detection took 0.621s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000000693.jpg
+Detection took 0.476s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000000699.jpg
+Detection took 0.491s for 123 object proposals
+Demo for data/demo/COCO_val2014_000000000711.jpg
+Detection took 0.500s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000715.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000724.jpg
+Detection took 0.573s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000730.jpg
+Detection took 0.531s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000757.jpg
+Detection took 0.551s for 202 object proposals
+Demo for data/demo/COCO_val2014_000000000761.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000764.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000772.jpg
+Detection took 0.465s for 265 object proposals
+Demo for data/demo/COCO_val2014_000000000285.jpg
+Detection took 0.424s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000000474.jpg
+Detection took 0.517s for 179 object proposals
+Demo for data/demo/COCO_val2014_000000000636.jpg
+Detection took 0.448s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000000775.jpg
+Detection took 0.465s for 157 object proposals
+Demo for data/demo/COCO_val2014_000000000974.jpg
+Detection took 0.511s for 292 object proposals
+Demo for data/demo/COCO_val2014_000000001164.jpg
+Detection took 0.580s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001353.jpg
+Detection took 0.486s for 299 object proposals
+Demo for data/demo/COCO_val2014_000000001554.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001675.jpg
+Detection took 0.470s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000001869.jpg
+Detection took 0.594s for 200 object proposals
+Demo for data/demo/COCO_val2014_000000002154.jpg
+Detection took 0.547s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002299.jpg
+Detection took 0.591s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002562.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000776.jpg
+Detection took 0.477s for 86 object proposals
+Demo for data/demo/COCO_val2014_000000000785.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000802.jpg
+Detection took 0.520s for 295 object proposals
+Demo for data/demo/COCO_val2014_000000000810.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000827.jpg
+Detection took 0.418s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000831.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000836.jpg
+Detection took 0.443s for 257 object proposals
+Demo for data/demo/COCO_val2014_000000000872.jpg
+Detection took 0.423s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000873.jpg
+Detection took 0.461s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000885.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000923.jpg
+Detection took 0.533s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000939.jpg
+Detection took 0.517s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000962.jpg
+Detection took 0.485s for 189 object proposals
+Demo for data/demo/COCO_val2014_000000000969.jpg
+Detection took 0.743s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000985.jpg
+Detection took 0.588s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000987.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000000999.jpg
+Detection took 0.545s for 282 object proposals
+Demo for data/demo/COCO_val2014_000000001000.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001029.jpg
+Detection took 0.486s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000001063.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001064.jpg
+Detection took 0.428s for 128 object proposals
+Demo for data/demo/COCO_val2014_000000001083.jpg
+Detection took 0.563s for 299 object proposals
+Demo for data/demo/COCO_val2014_000000001089.jpg
+Detection took 0.451s for 214 object proposals
+Demo for data/demo/COCO_val2014_000000001103.jpg
+Detection took 0.546s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001138.jpg
+Detection took 0.471s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001146.jpg
+Detection took 0.507s for 111 object proposals
+Demo for data/demo/COCO_val2014_000000001149.jpg
+Detection took 0.607s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001153.jpg
+Detection took 0.531s for 173 object proposals
+Demo for data/demo/COCO_val2014_000000001171.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001176.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001180.jpg
+Detection took 0.583s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001205.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001228.jpg
+Detection took 0.470s for 296 object proposals
+Demo for data/demo/COCO_val2014_000000001244.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001268.jpg
+Detection took 0.588s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001270.jpg
+Detection took 0.558s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001290.jpg
+Detection took 0.458s for 200 object proposals
+Demo for data/demo/COCO_val2014_000000001292.jpg
+Detection took 0.512s for 275 object proposals
+Demo for data/demo/COCO_val2014_000000001296.jpg
+Detection took 0.493s for 115 object proposals
+Demo for data/demo/COCO_val2014_000000001340.jpg
+Detection took 0.587s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000001342.jpg
+Detection took 0.556s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000001347.jpg
+Detection took 0.467s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001369.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001374.jpg
+Detection took 0.743s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000001393.jpg
+Detection took 0.465s for 144 object proposals
+Demo for data/demo/COCO_val2014_000000001398.jpg
+Detection took 0.467s for 279 object proposals
+Demo for data/demo/COCO_val2014_000000001404.jpg
+Detection took 0.481s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000001425.jpg
+Detection took 0.468s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000001436.jpg
+Detection took 0.419s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000001442.jpg
+Detection took 0.601s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000001448.jpg
+Detection took 0.432s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000001464.jpg
+Detection took 0.517s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001490.jpg
+Detection took 0.508s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001503.jpg
+Detection took 0.422s for 266 object proposals
+Demo for data/demo/COCO_val2014_000000001525.jpg
+Detection took 0.540s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001532.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001561.jpg
+Detection took 0.413s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000001563.jpg
+Detection took 0.582s for 220 object proposals
+Demo for data/demo/COCO_val2014_000000001573.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001577.jpg
+Detection took 0.457s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000001584.jpg
+Detection took 0.401s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001590.jpg
+Detection took 0.499s for 202 object proposals
+Demo for data/demo/COCO_val2014_000000001591.jpg
+Detection took 0.399s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001592.jpg
+Detection took 0.668s for 281 object proposals
+Demo for data/demo/COCO_val2014_000000001599.jpg
+Detection took 0.555s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001626.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001647.jpg
+Detection took 0.506s for 146 object proposals
+Demo for data/demo/COCO_val2014_000000001655.jpg
+Detection took 0.522s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001667.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001668.jpg
+Detection took 0.483s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001682.jpg
+Detection took 0.675s for 253 object proposals
+Demo for data/demo/COCO_val2014_000000001700.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001722.jpg
+Detection took 0.621s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001739.jpg
+Detection took 0.543s for 285 object proposals
+Demo for data/demo/COCO_val2014_000000001757.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001761.jpg
+Detection took 0.540s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001779.jpg
+Detection took 0.556s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000001799.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001803.jpg
+Detection took 0.470s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001818.jpg
+Detection took 0.623s for 104 object proposals
+Demo for data/demo/COCO_val2014_000000001840.jpg
+Detection took 0.562s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001841.jpg
+Detection took 0.460s for 113 object proposals
+Demo for data/demo/COCO_val2014_000000001852.jpg
+Detection took 0.548s for 203 object proposals
+Demo for data/demo/COCO_val2014_000000001856.jpg
+Detection took 0.511s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001903.jpg
+Detection took 0.471s for 174 object proposals
+Demo for data/demo/COCO_val2014_000000001948.jpg
+Detection took 0.681s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001955.jpg
+Detection took 0.582s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001960.jpg
+Detection took 0.537s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001987.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000001993.jpg
+Detection took 0.542s for 288 object proposals
+Demo for data/demo/COCO_val2014_000000002006.jpg
+Detection took 0.494s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002014.jpg
+Detection took 0.574s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002061.jpg
+Detection took 0.598s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000002124.jpg
+Detection took 0.541s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002139.jpg
+Detection took 0.671s for 264 object proposals
+Demo for data/demo/COCO_val2014_000000002142.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002149.jpg
+Detection took 0.654s for 118 object proposals
+Demo for data/demo/COCO_val2014_000000002153.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002157.jpg
+Detection took 0.645s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002164.jpg
+Detection took 0.705s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002171.jpg
+Detection took 0.569s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002179.jpg
+Detection took 0.531s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002191.jpg
+Detection took 0.707s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002212.jpg
+Detection took 0.645s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000002225.jpg
+Detection took 0.383s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000002235.jpg
+Detection took 0.498s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000002239.jpg
+Detection took 0.536s for 185 object proposals
+Demo for data/demo/COCO_val2014_000000002240.jpg
+Detection took 0.479s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000002255.jpg
+Detection took 0.504s for 123 object proposals
+Demo for data/demo/COCO_val2014_000000002261.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002290.jpg
+Detection took 0.486s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002295.jpg
+Detection took 0.457s for 97 object proposals
+Demo for data/demo/COCO_val2014_000000002302.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002315.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002346.jpg
+Detection took 0.471s for 179 object proposals
+Demo for data/demo/COCO_val2014_000000002388.jpg
+Detection took 0.615s for 199 object proposals
+Demo for data/demo/COCO_val2014_000000002431.jpg
+Detection took 0.569s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000002434.jpg
+Detection took 0.480s for 293 object proposals
+Demo for data/demo/COCO_val2014_000000002453.jpg
+Detection took 0.614s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002473.jpg
+Detection took 0.560s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002477.jpg
+Detection took 0.553s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000002495.jpg
+Detection took 0.382s for 283 object proposals
+Demo for data/demo/COCO_val2014_000000002521.jpg
+Detection took 0.550s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000002525.jpg
+Detection took 0.565s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002529.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002532.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002587.jpg
+Detection took 0.476s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000002592.jpg
+Detection took 0.442s for 132 object proposals
+Demo for data/demo/COCO_val2014_000000002613.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002621.jpg
+Detection took 0.513s for 214 object proposals
+Demo for data/demo/COCO_val2014_000000002640.jpg
+Detection took 0.533s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002684.jpg
+Detection took 0.510s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002685.jpg
+Detection took 0.457s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002690.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002753.jpg
+Detection took 0.458s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000002759.jpg
+Detection took 0.526s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000002764.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002822.jpg
+Detection took 0.633s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002839.jpg
+Detection took 0.419s for 140 object proposals
+Demo for data/demo/COCO_val2014_000000002867.jpg
+Detection took 0.550s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002890.jpg
+Detection took 0.618s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002894.jpg
+Detection took 0.716s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002923.jpg
+Detection took 0.488s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002972.jpg
+Detection took 0.443s for 277 object proposals
+Demo for data/demo/COCO_val2014_000000002985.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000002988.jpg
+Detection took 0.670s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000003001.jpg
+Detection took 0.632s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000003014.jpg
+Detection took 0.468s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000003035.jpg
+Detection took 0.578s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003067.jpg
+Detection took 0.506s for 197 object proposals
+Demo for data/demo/COCO_val2014_000000003084.jpg
+Detection took 0.446s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000003091.jpg
+Detection took 0.449s for 168 object proposals
+Demo for data/demo/COCO_val2014_000000003093.jpg
+Detection took 0.427s for 156 object proposals
+Demo for data/demo/COCO_val2014_000000003103.jpg
+Detection took 0.666s for 250 object proposals
+Demo for data/demo/COCO_val2014_000000003125.jpg
+Detection took 0.675s for 291 object proposals
+Demo for data/demo/COCO_val2014_000000003134.jpg
+Detection took 0.631s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003145.jpg
+Detection took 0.772s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003149.jpg
+Detection took 0.483s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003156.jpg
+Detection took 0.475s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000003192.jpg
+Detection took 0.551s for 201 object proposals
+Demo for data/demo/COCO_val2014_000000003209.jpg
+Detection took 0.430s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003217.jpg
+Detection took 0.544s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000003244.jpg
+Detection took 0.517s for 294 object proposals
+Demo for data/demo/COCO_val2014_000000003255.jpg
+Detection took 0.646s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000003310.jpg
+Detection took 0.419s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000003326.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003335.jpg
+Detection took 0.571s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000003337.jpg
+Detection took 0.564s for 164 object proposals
+Demo for data/demo/COCO_val2014_000000003378.jpg
+Detection took 0.582s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003382.jpg
+Detection took 0.856s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000003425.jpg
+Detection took 0.522s for 269 object proposals
+Demo for data/demo/COCO_val2014_000000003466.jpg
+Detection took 0.398s for 133 object proposals
+Demo for data/demo/COCO_val2014_000000003480.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003488.jpg
+Detection took 0.551s for 217 object proposals
+Demo for data/demo/COCO_val2014_000000003501.jpg
+Detection took 0.382s for 280 object proposals
+Demo for data/demo/COCO_val2014_000000003553.jpg
+Detection took 0.464s for 282 object proposals
+Demo for data/demo/COCO_val2014_000000003580.jpg
+Detection took 0.457s for 293 object proposals
+Demo for data/demo/COCO_val2014_000000003590.jpg
+Detection took 0.448s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003595.jpg
+Detection took 0.467s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003661.jpg
+Detection took 0.530s for 121 object proposals
+Demo for data/demo/COCO_val2014_000000003690.jpg
+Detection took 0.381s for 129 object proposals
+Demo for data/demo/COCO_val2014_000000003693.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003703.jpg
+Detection took 0.526s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000003711.jpg
+Detection took 0.441s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000003716.jpg
+Detection took 0.466s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003742.jpg
+Detection took 0.454s for 293 object proposals
+Demo for data/demo/COCO_val2014_000000003761.jpg
+Detection took 0.488s for 193 object proposals
+Demo for data/demo/COCO_val2014_000000003771.jpg
+Detection took 0.445s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000003779.jpg
+Detection took 0.446s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003786.jpg
+Detection took 0.435s for 287 object proposals
+Demo for data/demo/COCO_val2014_000000003793.jpg
+Detection took 0.489s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000003794.jpg
+Detection took 0.425s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000003799.jpg
+Detection took 0.455s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003817.jpg
+Detection took 0.503s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003832.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003837.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003849.jpg
+Detection took 0.451s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003865.jpg
+Detection took 0.570s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000003867.jpg
+Detection took 0.546s for 206 object proposals
+Demo for data/demo/COCO_val2014_000000003926.jpg
+Detection took 0.505s for 201 object proposals
+Demo for data/demo/COCO_val2014_000000003932.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003934.jpg
+Detection took 0.449s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003938.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003939.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003947.jpg
+Detection took 0.411s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003964.jpg
+Detection took 0.460s for 270 object proposals
+Demo for data/demo/COCO_val2014_000000003983.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004011.jpg
+Detection took 0.430s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004021.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004066.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004079.jpg
+Detection took 0.410s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000004092.jpg
+Detection took 0.432s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000004093.jpg
+Detection took 0.490s for 278 object proposals
+Demo for data/demo/COCO_val2014_000000004108.jpg
+Detection took 0.471s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004125.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004134.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004157.jpg
+Detection took 0.402s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004175.jpg
+Detection took 0.452s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004187.jpg
+Detection took 0.462s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000004211.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004212.jpg
+Detection took 0.558s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000004227.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004229.jpg
+Detection took 0.471s for 274 object proposals
+Demo for data/demo/COCO_val2014_000000004243.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004256.jpg
+Detection took 0.475s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000004265.jpg
+Detection took 0.476s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004266.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004275.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004283.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004286.jpg
+Detection took 0.391s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000004296.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004312.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004338.jpg
+Detection took 0.504s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000004355.jpg
+Detection took 0.529s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004359.jpg
+Detection took 0.441s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004375.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004386.jpg
+Detection took 0.550s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000004392.jpg
+Detection took 0.421s for 159 object proposals
+Demo for data/demo/COCO_val2014_000000004396.jpg
+Detection took 0.454s for 111 object proposals
+Demo for data/demo/COCO_val2014_000000004438.jpg
+Detection took 0.467s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004495.jpg
+Detection took 0.570s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000004497.jpg
+Detection took 0.483s for 260 object proposals
+Demo for data/demo/COCO_val2014_000000004498.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004509.jpg
+Detection took 0.459s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000004551.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004554.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004576.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004592.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004620.jpg
+Detection took 0.522s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000004665.jpg
+Detection took 0.533s for 160 object proposals
+Demo for data/demo/COCO_val2014_000000004678.jpg
+Detection took 0.593s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004688.jpg
+Detection took 0.741s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000004731.jpg
+Detection took 0.635s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004736.jpg
+Detection took 0.696s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004742.jpg
+Detection took 0.597s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004749.jpg
+Detection took 0.481s for 130 object proposals
+Demo for data/demo/COCO_val2014_000000004754.jpg
+Detection took 0.558s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004760.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004764.jpg
+Detection took 0.601s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004765.jpg
+Detection took 0.426s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004772.jpg
+Detection took 0.511s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000004795.jpg
+Detection took 0.368s for 144 object proposals
+Demo for data/demo/COCO_val2014_000000004840.jpg
+Detection took 0.645s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004916.jpg
+Detection took 0.427s for 293 object proposals
+Demo for data/demo/COCO_val2014_000000004936.jpg
+Detection took 0.464s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000004972.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004979.jpg
+Detection took 0.570s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004980.jpg
+Detection took 0.526s for 295 object proposals
+Demo for data/demo/COCO_val2014_000000004988.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005001.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005032.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005033.jpg
+Detection took 0.573s for 276 object proposals
+Demo for data/demo/COCO_val2014_000000005037.jpg
+Detection took 0.551s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005038.jpg
+Detection took 0.589s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000005060.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005064.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005076.jpg
+Detection took 0.476s for 172 object proposals
+Demo for data/demo/COCO_val2014_000000005105.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005107.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005123.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005146.jpg
+Detection took 0.461s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000005154.jpg
+Detection took 0.436s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000005178.jpg
+Detection took 0.425s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005184.jpg
+Detection took 0.454s for 120 object proposals
+Demo for data/demo/COCO_val2014_000000005193.jpg
+Detection took 0.538s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005205.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005213.jpg
+Detection took 0.487s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005225.jpg
+Detection took 0.416s for 187 object proposals
+Demo for data/demo/COCO_val2014_000000005245.jpg
+Detection took 0.626s for 242 object proposals
+Demo for data/demo/COCO_val2014_000000005247.jpg
+Detection took 0.528s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005278.jpg
+Detection took 0.426s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000005282.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005314.jpg
+Detection took 0.511s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000005325.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005352.jpg
+Detection took 0.551s for 161 object proposals
+Demo for data/demo/COCO_val2014_000000005356.jpg
+Detection took 0.630s for 282 object proposals
+Demo for data/demo/COCO_val2014_000000005385.jpg
+Detection took 0.549s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005388.jpg
+Detection took 0.577s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005394.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005412.jpg
+Detection took 0.609s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000005418.jpg
+Detection took 0.540s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000005437.jpg
+Detection took 0.409s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000005443.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005476.jpg
+Detection took 0.628s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005477.jpg
+Detection took 0.595s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000005486.jpg
+Detection took 0.587s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005502.jpg
+Detection took 0.553s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005503.jpg
+Detection took 0.504s for 110 object proposals
+Demo for data/demo/COCO_val2014_000000005529.jpg
+Detection took 0.571s for 299 object proposals
+Demo for data/demo/COCO_val2014_000000005535.jpg
+Detection took 0.538s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005540.jpg
+Detection took 0.505s for 102 object proposals
+Demo for data/demo/COCO_val2014_000000005569.jpg
+Detection took 0.462s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005577.jpg
+Detection took 0.429s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000005586.jpg
+Detection took 0.414s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000005595.jpg
+Detection took 0.574s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000005599.jpg
+Detection took 0.639s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005600.jpg
+Detection took 0.659s for 124 object proposals
+Demo for data/demo/COCO_val2014_000000005601.jpg
+Detection took 0.605s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005617.jpg
+Detection took 0.485s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000005635.jpg
+Detection took 0.633s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000005644.jpg
+Detection took 0.531s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005652.jpg
+Detection took 0.532s for 93 object proposals
+Demo for data/demo/COCO_val2014_000000005673.jpg
+Detection took 0.637s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000005690.jpg
+Detection took 0.661s for 251 object proposals
+Demo for data/demo/COCO_val2014_000000005694.jpg
+Detection took 0.570s for 255 object proposals
+Demo for data/demo/COCO_val2014_000000005706.jpg
+Detection took 0.511s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005713.jpg
+Detection took 0.462s for 278 object proposals
+Demo for data/demo/COCO_val2014_000000005723.jpg
+Detection took 0.626s for 231 object proposals
+Demo for data/demo/COCO_val2014_000000005724.jpg
+Detection took 0.390s for 264 object proposals
+Demo for data/demo/COCO_val2014_000000005728.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005754.jpg
+Detection took 0.386s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000005758.jpg
+Detection took 0.564s for 239 object proposals
+Demo for data/demo/COCO_val2014_000000005802.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005804.jpg
+Detection took 0.456s for 288 object proposals
+Demo for data/demo/COCO_val2014_000000005816.jpg
+Detection took 0.595s for 235 object proposals
+Demo for data/demo/COCO_val2014_000000005820.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003109.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003342.jpg
+Detection took 0.563s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000003694.jpg
+Detection took 0.356s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000003845.jpg
+Detection took 0.685s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000004069.jpg
+Detection took 0.639s for 293 object proposals
+Demo for data/demo/COCO_val2014_000000004246.jpg
+Detection took 0.651s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004395.jpg
+Detection took 0.544s for 97 object proposals
+Demo for data/demo/COCO_val2014_000000004700.jpg
+Detection took 0.670s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000004975.jpg
+Detection took 0.662s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005124.jpg
+Detection took 0.505s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005328.jpg
+Detection took 0.622s for 174 object proposals
+Demo for data/demo/COCO_val2014_000000005513.jpg
+Detection took 0.580s for 189 object proposals
+Demo for data/demo/COCO_val2014_000000005670.jpg
+Detection took 0.679s for 244 object proposals
+Demo for data/demo/COCO_val2014_000000005879.jpg
+Detection took 0.489s for 286 object proposals
+Demo for data/demo/COCO_val2014_000000005934.jpg
+Detection took 0.414s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000005961.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005965.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005992.jpg
+Detection took 0.487s for 261 object proposals
+Demo for data/demo/COCO_val2014_000000006005.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006012.jpg
+Detection took 0.476s for 212 object proposals
+Demo for data/demo/COCO_val2014_000000006019.jpg
+Detection took 0.567s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000006028.jpg
+Detection took 0.508s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006033.jpg
+Detection took 0.591s for 287 object proposals
+Demo for data/demo/COCO_val2014_000000006040.jpg
+Detection took 0.593s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006074.jpg
+Detection took 0.691s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006091.jpg
+Detection took 0.509s for 123 object proposals
+Demo for data/demo/COCO_val2014_000000006153.jpg
+Detection took 0.482s for 294 object proposals
+Demo for data/demo/COCO_val2014_000000006180.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006189.jpg
+Detection took 0.532s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000006211.jpg
+Detection took 0.567s for 248 object proposals
+Demo for data/demo/COCO_val2014_000000006213.jpg
+Detection took 0.547s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006220.jpg
+Detection took 0.548s for 209 object proposals
+Demo for data/demo/COCO_val2014_000000006226.jpg
+Detection took 0.510s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006266.jpg
+Detection took 0.448s for 125 object proposals
+Demo for data/demo/COCO_val2014_000000006306.jpg
+Detection took 0.488s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006347.jpg
+Detection took 0.511s for 187 object proposals
+Demo for data/demo/COCO_val2014_000000006393.jpg
+Detection took 0.461s for 99 object proposals
+Demo for data/demo/COCO_val2014_000000006397.jpg
+Detection took 0.622s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000006415.jpg
+Detection took 0.602s for 266 object proposals
+Demo for data/demo/COCO_val2014_000000006417.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006437.jpg
+Detection took 0.454s for 100 object proposals
+Demo for data/demo/COCO_val2014_000000006460.jpg
+Detection took 0.464s for 275 object proposals
+Demo for data/demo/COCO_val2014_000000006471.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006473.jpg
+Detection took 0.564s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000006484.jpg
+Detection took 0.419s for 285 object proposals
+Demo for data/demo/COCO_val2014_000000006497.jpg
+Detection took 0.453s for 276 object proposals
+Demo for data/demo/COCO_val2014_000000006527.jpg
+Detection took 0.532s for 222 object proposals
+Demo for data/demo/COCO_val2014_000000006579.jpg
+Detection took 0.511s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000006580.jpg
+Detection took 0.464s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006589.jpg
+Detection took 0.374s for 141 object proposals
+Demo for data/demo/COCO_val2014_000000006593.jpg
+Detection took 0.468s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000006608.jpg
+Detection took 0.476s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006614.jpg
+Detection took 0.501s for 231 object proposals
+Demo for data/demo/COCO_val2014_000000006658.jpg
+Detection took 0.506s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000006662.jpg
+Detection took 0.508s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000006673.jpg
+Detection took 0.449s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000006688.jpg
+Detection took 0.645s for 224 object proposals
+Demo for data/demo/COCO_val2014_000000006701.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006712.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006719.jpg
+Detection took 0.496s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000006720.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006723.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006748.jpg
+Detection took 0.609s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006763.jpg
+Detection took 0.466s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006771.jpg
+Detection took 0.703s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000006783.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006789.jpg
+Detection took 0.554s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006810.jpg
+Detection took 0.634s for 248 object proposals
+Demo for data/demo/COCO_val2014_000000006818.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006847.jpg
+Detection took 0.554s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000006854.jpg
+Detection took 0.421s for 140 object proposals
+Demo for data/demo/COCO_val2014_000000006861.jpg
+Detection took 0.556s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000006864.jpg
+Detection took 0.545s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006870.jpg
+Detection took 0.546s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006871.jpg
+Detection took 0.530s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000006874.jpg
+Detection took 0.533s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006894.jpg
+Detection took 0.495s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000006896.jpg
+Detection took 0.565s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006906.jpg
+Detection took 0.368s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000006921.jpg
+Detection took 0.583s for 140 object proposals
+Demo for data/demo/COCO_val2014_000000006949.jpg
+Detection took 0.518s for 155 object proposals
+Demo for data/demo/COCO_val2014_000000006954.jpg
+Detection took 0.511s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007023.jpg
+Detection took 0.524s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007072.jpg
+Detection took 0.525s for 279 object proposals
+Demo for data/demo/COCO_val2014_000000007088.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007096.jpg
+Detection took 0.568s for 215 object proposals
+Demo for data/demo/COCO_val2014_000000007107.jpg
+Detection took 0.426s for 222 object proposals
+Demo for data/demo/COCO_val2014_000000007108.jpg
+Detection took 0.563s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000007115.jpg
+Detection took 0.519s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007125.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007149.jpg
+Detection took 0.550s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007155.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007178.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007202.jpg
+Detection took 0.558s for 126 object proposals
+Demo for data/demo/COCO_val2014_000000007207.jpg
+Detection took 0.488s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007211.jpg
+Detection took 0.529s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007214.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007253.jpg
+Detection took 0.551s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000007256.jpg
+Detection took 0.487s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007260.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007267.jpg
+Detection took 0.482s for 116 object proposals
+Demo for data/demo/COCO_val2014_000000007274.jpg
+Detection took 0.448s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007276.jpg
+Detection took 0.628s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007278.jpg
+Detection took 0.575s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007281.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007288.jpg
+Detection took 0.502s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000007297.jpg
+Detection took 0.484s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007298.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007304.jpg
+Detection took 0.521s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007320.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007325.jpg
+Detection took 0.575s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007355.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007386.jpg
+Detection took 0.575s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007394.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007398.jpg
+Detection took 0.448s for 148 object proposals
+Demo for data/demo/COCO_val2014_000000007414.jpg
+Detection took 0.605s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007444.jpg
+Detection took 0.551s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007506.jpg
+Detection took 0.640s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000007511.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007519.jpg
+Detection took 0.577s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007522.jpg
+Detection took 0.507s for 182 object proposals
+Demo for data/demo/COCO_val2014_000000007556.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007559.jpg
+Detection took 0.540s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000007566.jpg
+Detection took 0.503s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000007570.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007593.jpg
+Detection took 0.595s for 238 object proposals
+Demo for data/demo/COCO_val2014_000000007666.jpg
+Detection took 0.471s for 276 object proposals
+Demo for data/demo/COCO_val2014_000000007673.jpg
+Detection took 0.446s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007682.jpg
+Detection took 0.502s for 91 object proposals
+Demo for data/demo/COCO_val2014_000000007690.jpg
+Detection took 0.462s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000007722.jpg
+Detection took 0.443s for 98 object proposals
+Demo for data/demo/COCO_val2014_000000007726.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007730.jpg
+Detection took 0.559s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000007784.jpg
+Detection took 0.436s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000007787.jpg
+Detection took 0.529s for 196 object proposals
+Demo for data/demo/COCO_val2014_000000007789.jpg
+Detection took 0.562s for 172 object proposals
+Demo for data/demo/COCO_val2014_000000007795.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007816.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007818.jpg
+Detection took 0.591s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000007873.jpg
+Detection took 0.505s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000007888.jpg
+Detection took 0.387s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007899.jpg
+Detection took 0.538s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007913.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007938.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007952.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007961.jpg
+Detection took 0.524s for 130 object proposals
+Demo for data/demo/COCO_val2014_000000007977.jpg
+Detection took 0.589s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007989.jpg
+Detection took 0.433s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007991.jpg
+Detection took 0.569s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008005.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008010.jpg
+Detection took 0.601s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008016.jpg
+Detection took 0.469s for 159 object proposals
+Demo for data/demo/COCO_val2014_000000008021.jpg
+Detection took 0.581s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000008045.jpg
+Detection took 0.394s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008065.jpg
+Detection took 0.461s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008080.jpg
+Detection took 0.508s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008119.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008128.jpg
+Detection took 0.514s for 175 object proposals
+Demo for data/demo/COCO_val2014_000000008131.jpg
+Detection took 0.606s for 224 object proposals
+Demo for data/demo/COCO_val2014_000000008170.jpg
+Detection took 0.367s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008179.jpg
+Detection took 0.456s for 145 object proposals
+Demo for data/demo/COCO_val2014_000000008180.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008181.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008188.jpg
+Detection took 0.480s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008190.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008191.jpg
+Detection took 0.537s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008196.jpg
+Detection took 0.511s for 168 object proposals
+Demo for data/demo/COCO_val2014_000000008211.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008218.jpg
+Detection took 0.391s for 256 object proposals
+Demo for data/demo/COCO_val2014_000000008267.jpg
+Detection took 0.383s for 132 object proposals
+Demo for data/demo/COCO_val2014_000000008277.jpg
+Detection took 0.488s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000008292.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008333.jpg
+Detection took 0.456s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008350.jpg
+Detection took 0.584s for 244 object proposals
+Demo for data/demo/COCO_val2014_000000008351.jpg
+Detection took 0.426s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000008401.jpg
+Detection took 0.457s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000008418.jpg
+Detection took 0.488s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000008443.jpg
+Detection took 0.413s for 131 object proposals
+Demo for data/demo/COCO_val2014_000000008445.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008457.jpg
+Detection took 0.492s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000008473.jpg
+Detection took 0.491s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000008493.jpg
+Detection took 0.561s for 231 object proposals
+Demo for data/demo/COCO_val2014_000000008495.jpg
+Detection took 0.535s for 222 object proposals
+Demo for data/demo/COCO_val2014_000000008498.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008532.jpg
+Detection took 0.458s for 102 object proposals
+Demo for data/demo/COCO_val2014_000000008548.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008583.jpg
+Detection took 0.450s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008589.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008594.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008599.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008603.jpg
+Detection took 0.548s for 222 object proposals
+Demo for data/demo/COCO_val2014_000000008612.jpg
+Detection took 0.498s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000008629.jpg
+Detection took 0.387s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008646.jpg
+Detection took 0.388s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008647.jpg
+Detection took 0.484s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008676.jpg
+Detection took 0.437s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000008688.jpg
+Detection took 0.374s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000008690.jpg
+Detection took 0.458s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008708.jpg
+Detection took 0.414s for 143 object proposals
+Demo for data/demo/COCO_val2014_000000008711.jpg
+Detection took 0.416s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000008718.jpg
+Detection took 0.414s for 140 object proposals
+Demo for data/demo/COCO_val2014_000000008721.jpg
+Detection took 0.470s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008749.jpg
+Detection took 0.459s for 162 object proposals
+Demo for data/demo/COCO_val2014_000000008762.jpg
+Detection took 0.439s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000008771.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008775.jpg
+Detection took 0.593s for 247 object proposals
+Demo for data/demo/COCO_val2014_000000008787.jpg
+Detection took 0.500s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008803.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008832.jpg
+Detection took 0.456s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006177.jpg
+Detection took 0.369s for 130 object proposals
+Demo for data/demo/COCO_val2014_000000006450.jpg
+Detection took 0.489s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000006672.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000006845.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007050.jpg
+Detection took 0.445s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007241.jpg
+Detection took 0.447s for 113 object proposals
+Demo for data/demo/COCO_val2014_000000007333.jpg
+Detection took 0.588s for 242 object proposals
+Demo for data/demo/COCO_val2014_000000007574.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000007867.jpg
+Detection took 0.480s for 127 object proposals
+Demo for data/demo/COCO_val2014_000000008042.jpg
+Detection took 0.477s for 277 object proposals
+Demo for data/demo/COCO_val2014_000000008204.jpg
+Detection took 0.476s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008483.jpg
+Detection took 0.488s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008665.jpg
+Detection took 0.492s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000008853.jpg
+Detection took 0.480s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008876.jpg
+Detection took 0.404s for 296 object proposals
+Demo for data/demo/COCO_val2014_000000008888.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008899.jpg
+Detection took 0.428s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008922.jpg
+Detection took 0.385s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000008923.jpg
+Detection took 0.459s for 277 object proposals
+Demo for data/demo/COCO_val2014_000000008934.jpg
+Detection took 0.420s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000008953.jpg
+Detection took 0.435s for 126 object proposals
+Demo for data/demo/COCO_val2014_000000008981.jpg
+Detection took 0.470s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009002.jpg
+Detection took 0.430s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000009003.jpg
+Detection took 0.427s for 137 object proposals
+Demo for data/demo/COCO_val2014_000000009007.jpg
+Detection took 0.385s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009041.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009050.jpg
+Detection took 0.541s for 220 object proposals
+Demo for data/demo/COCO_val2014_000000009105.jpg
+Detection took 0.377s for 288 object proposals
+Demo for data/demo/COCO_val2014_000000009142.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009145.jpg
+Detection took 0.444s for 163 object proposals
+Demo for data/demo/COCO_val2014_000000009156.jpg
+Detection took 0.443s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000009170.jpg
+Detection took 0.527s for 163 object proposals
+Demo for data/demo/COCO_val2014_000000009171.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009172.jpg
+Detection took 0.461s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009175.jpg
+Detection took 0.452s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009186.jpg
+Detection took 0.452s for 257 object proposals
+Demo for data/demo/COCO_val2014_000000009214.jpg
+Detection took 0.440s for 260 object proposals
+Demo for data/demo/COCO_val2014_000000009217.jpg
+Detection took 0.445s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009236.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009262.jpg
+Detection took 0.486s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009270.jpg
+Detection took 0.463s for 275 object proposals
+Demo for data/demo/COCO_val2014_000000009275.jpg
+Detection took 0.466s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009286.jpg
+Detection took 0.404s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009288.jpg
+Detection took 0.481s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000009317.jpg
+Detection took 0.500s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009378.jpg
+Detection took 0.514s for 195 object proposals
+Demo for data/demo/COCO_val2014_000000009379.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009381.jpg
+Detection took 0.559s for 255 object proposals
+Demo for data/demo/COCO_val2014_000000009395.jpg
+Detection took 0.452s for 269 object proposals
+Demo for data/demo/COCO_val2014_000000009400.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009420.jpg
+Detection took 0.411s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009426.jpg
+Detection took 0.595s for 251 object proposals
+Demo for data/demo/COCO_val2014_000000009448.jpg
+Detection took 0.394s for 288 object proposals
+Demo for data/demo/COCO_val2014_000000009450.jpg
+Detection took 0.451s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009466.jpg
+Detection took 0.593s for 243 object proposals
+Demo for data/demo/COCO_val2014_000000009483.jpg
+Detection took 0.448s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009497.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009520.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009527.jpg
+Detection took 0.450s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009548.jpg
+Detection took 0.457s for 172 object proposals
+Demo for data/demo/COCO_val2014_000000009553.jpg
+Detection took 0.456s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000009572.jpg
+Detection took 0.442s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009590.jpg
+Detection took 0.486s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009603.jpg
+Detection took 0.385s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009628.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009647.jpg
+Detection took 0.448s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009668.jpg
+Detection took 0.408s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000009679.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009699.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009721.jpg
+Detection took 0.460s for 105 object proposals
+Demo for data/demo/COCO_val2014_000000009727.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009729.jpg
+Detection took 0.407s for 141 object proposals
+Demo for data/demo/COCO_val2014_000000009759.jpg
+Detection took 0.435s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000009769.jpg
+Detection took 0.471s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009772.jpg
+Detection took 0.425s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009791.jpg
+Detection took 0.511s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000009800.jpg
+Detection took 0.561s for 240 object proposals
+Demo for data/demo/COCO_val2014_000000009801.jpg
+Detection took 0.419s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009807.jpg
+Detection took 0.482s for 118 object proposals
+Demo for data/demo/COCO_val2014_000000009813.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009830.jpg
+Detection took 0.465s for 186 object proposals
+Demo for data/demo/COCO_val2014_000000009857.jpg
+Detection took 0.431s for 284 object proposals
+Demo for data/demo/COCO_val2014_000000009891.jpg
+Detection took 0.455s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009914.jpg
+Detection took 0.375s for 136 object proposals
+Demo for data/demo/COCO_val2014_000000009927.jpg
+Detection took 0.511s for 236 object proposals
+Demo for data/demo/COCO_val2014_000000009941.jpg
+Detection took 0.478s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010008.jpg
+Detection took 0.436s for 156 object proposals
+Demo for data/demo/COCO_val2014_000000010012.jpg
+Detection took 0.489s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000010014.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010023.jpg
+Detection took 0.544s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000010039.jpg
+Detection took 0.435s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000010040.jpg
+Detection took 0.480s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010056.jpg
+Detection took 0.478s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010077.jpg
+Detection took 0.413s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010092.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010104.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010107.jpg
+Detection took 0.418s for 162 object proposals
+Demo for data/demo/COCO_val2014_000000010115.jpg
+Detection took 0.512s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000010123.jpg
+Detection took 0.559s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000010138.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010142.jpg
+Detection took 0.471s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010149.jpg
+Detection took 0.451s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010192.jpg
+Detection took 0.462s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010205.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010211.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010216.jpg
+Detection took 0.449s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010217.jpg
+Detection took 0.459s for 192 object proposals
+Demo for data/demo/COCO_val2014_000000010219.jpg
+Detection took 0.538s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000010249.jpg
+Detection took 0.561s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000010256.jpg
+Detection took 0.439s for 158 object proposals
+Demo for data/demo/COCO_val2014_000000010263.jpg
+Detection took 0.518s for 239 object proposals
+Demo for data/demo/COCO_val2014_000000010324.jpg
+Detection took 0.505s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010363.jpg
+Detection took 0.465s for 272 object proposals
+Demo for data/demo/COCO_val2014_000000010386.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010393.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010395.jpg
+Detection took 0.342s for 258 object proposals
+Demo for data/demo/COCO_val2014_000000010400.jpg
+Detection took 0.463s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000010428.jpg
+Detection took 0.465s for 279 object proposals
+Demo for data/demo/COCO_val2014_000000010432.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010440.jpg
+Detection took 0.507s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000010442.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010449.jpg
+Detection took 0.483s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010463.jpg
+Detection took 0.557s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000010496.jpg
+Detection took 0.540s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010526.jpg
+Detection took 0.460s for 265 object proposals
+Demo for data/demo/COCO_val2014_000000010580.jpg
+Detection took 0.481s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000010583.jpg
+Detection took 0.381s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010591.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010613.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010615.jpg
+Detection took 0.501s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010643.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010644.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010678.jpg
+Detection took 0.558s for 240 object proposals
+Demo for data/demo/COCO_val2014_000000010681.jpg
+Detection took 0.418s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000010684.jpg
+Detection took 0.495s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010693.jpg
+Detection took 0.539s for 214 object proposals
+Demo for data/demo/COCO_val2014_000000010694.jpg
+Detection took 0.459s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000010698.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010705.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010720.jpg
+Detection took 0.436s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000010764.jpg
+Detection took 0.439s for 270 object proposals
+Demo for data/demo/COCO_val2014_000000010766.jpg
+Detection took 0.397s for 69 object proposals
+Demo for data/demo/COCO_val2014_000000010779.jpg
+Detection took 0.461s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010785.jpg
+Detection took 0.477s for 120 object proposals
+Demo for data/demo/COCO_val2014_000000010793.jpg
+Detection took 0.600s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000010800.jpg
+Detection took 0.482s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010822.jpg
+Detection took 0.503s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000010825.jpg
+Detection took 0.400s for 263 object proposals
+Demo for data/demo/COCO_val2014_000000010837.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010844.jpg
+Detection took 0.443s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010858.jpg
+Detection took 0.389s for 152 object proposals
+Demo for data/demo/COCO_val2014_000000010920.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010928.jpg
+Detection took 0.409s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010954.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010966.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010977.jpg
+Detection took 0.403s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000010986.jpg
+Detection took 0.485s for 294 object proposals
+Demo for data/demo/COCO_val2014_000000010995.jpg
+Detection took 0.391s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000011034.jpg
+Detection took 0.471s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011042.jpg
+Detection took 0.382s for 143 object proposals
+Demo for data/demo/COCO_val2014_000000011051.jpg
+Detection took 0.510s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000011081.jpg
+Detection took 0.445s for 152 object proposals
+Demo for data/demo/COCO_val2014_000000011099.jpg
+Detection took 0.464s for 275 object proposals
+Demo for data/demo/COCO_val2014_000000011115.jpg
+Detection took 0.417s for 257 object proposals
+Demo for data/demo/COCO_val2014_000000011122.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011149.jpg
+Detection took 0.448s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011156.jpg
+Detection took 0.417s for 172 object proposals
+Demo for data/demo/COCO_val2014_000000011172.jpg
+Detection took 0.384s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011181.jpg
+Detection took 0.471s for 274 object proposals
+Demo for data/demo/COCO_val2014_000000011182.jpg
+Detection took 0.463s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011184.jpg
+Detection took 0.415s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000011197.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011198.jpg
+Detection took 0.559s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000011202.jpg
+Detection took 0.484s for 120 object proposals
+Demo for data/demo/COCO_val2014_000000011209.jpg
+Detection took 0.447s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011241.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011260.jpg
+Detection took 0.443s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011262.jpg
+Detection took 0.477s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011269.jpg
+Detection took 0.410s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011276.jpg
+Detection took 0.381s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011291.jpg
+Detection took 0.497s for 222 object proposals
+Demo for data/demo/COCO_val2014_000000011305.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011313.jpg
+Detection took 0.471s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000011316.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011320.jpg
+Detection took 0.441s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011334.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011340.jpg
+Detection took 0.495s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011347.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011360.jpg
+Detection took 0.444s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011364.jpg
+Detection took 0.413s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011374.jpg
+Detection took 0.562s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000011390.jpg
+Detection took 0.478s for 124 object proposals
+Demo for data/demo/COCO_val2014_000000011449.jpg
+Detection took 0.426s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000011494.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011511.jpg
+Detection took 0.419s for 257 object proposals
+Demo for data/demo/COCO_val2014_000000011537.jpg
+Detection took 0.465s for 98 object proposals
+Demo for data/demo/COCO_val2014_000000011538.jpg
+Detection took 0.424s for 284 object proposals
+Demo for data/demo/COCO_val2014_000000011552.jpg
+Detection took 0.473s for 163 object proposals
+Demo for data/demo/COCO_val2014_000000011567.jpg
+Detection took 0.454s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000011570.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011615.jpg
+Detection took 0.366s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000011625.jpg
+Detection took 0.444s for 289 object proposals
+Demo for data/demo/COCO_val2014_000000011655.jpg
+Detection took 0.560s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000011696.jpg
+Detection took 0.424s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000011699.jpg
+Detection took 0.457s for 277 object proposals
+Demo for data/demo/COCO_val2014_000000011703.jpg
+Detection took 0.491s for 204 object proposals
+Demo for data/demo/COCO_val2014_000000011712.jpg
+Detection took 0.442s for 120 object proposals
+Demo for data/demo/COCO_val2014_000000011721.jpg
+Detection took 0.419s for 258 object proposals
+Demo for data/demo/COCO_val2014_000000011727.jpg
+Detection took 0.495s for 220 object proposals
+Demo for data/demo/COCO_val2014_000000009077.jpg
+Detection took 0.495s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009274.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009478.jpg
+Detection took 0.466s for 261 object proposals
+Demo for data/demo/COCO_val2014_000000009707.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000009908.jpg
+Detection took 0.477s for 132 object proposals
+Demo for data/demo/COCO_val2014_000000010114.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010290.jpg
+Detection took 0.622s for 246 object proposals
+Demo for data/demo/COCO_val2014_000000010534.jpg
+Detection took 0.466s for 189 object proposals
+Demo for data/demo/COCO_val2014_000000010707.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000010935.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011169.jpg
+Detection took 0.541s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000011300.jpg
+Detection took 0.623s for 255 object proposals
+Demo for data/demo/COCO_val2014_000000011525.jpg
+Detection took 0.612s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000002881.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000005860.jpg
+Detection took 0.615s for 244 object proposals
+Demo for data/demo/COCO_val2014_000000008844.jpg
+Detection took 0.682s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000011742.jpg
+Detection took 0.604s for 234 object proposals
+Demo for data/demo/COCO_val2014_000000014888.jpg
+Detection took 0.421s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000017869.jpg
+Detection took 0.444s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020650.jpg
+Detection took 0.501s for 210 object proposals
+Demo for data/demo/COCO_val2014_000000023584.jpg
+Detection took 0.640s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000026547.jpg
+Detection took 0.528s for 119 object proposals
+Demo for data/demo/COCO_val2014_000000029370.jpg
+Detection took 0.401s for 130 object proposals
+Demo for data/demo/COCO_val2014_000000032258.jpg
+Detection took 0.512s for 199 object proposals
+Demo for data/demo/COCO_val2014_000000034900.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000038073.jpg
+Detection took 0.608s for 195 object proposals
+Demo for data/demo/COCO_val2014_000000011760.jpg
+Detection took 0.688s for 235 object proposals
+Demo for data/demo/COCO_val2014_000000011788.jpg
+Detection took 0.414s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011796.jpg
+Detection took 0.534s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000011813.jpg
+Detection took 0.444s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000011887.jpg
+Detection took 0.482s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000011925.jpg
+Detection took 0.548s for 215 object proposals
+Demo for data/demo/COCO_val2014_000000011987.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012010.jpg
+Detection took 0.438s for 120 object proposals
+Demo for data/demo/COCO_val2014_000000012014.jpg
+Detection took 0.517s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012016.jpg
+Detection took 0.454s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000012020.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012047.jpg
+Detection took 0.437s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000012062.jpg
+Detection took 0.487s for 178 object proposals
+Demo for data/demo/COCO_val2014_000000012081.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012101.jpg
+Detection took 0.440s for 178 object proposals
+Demo for data/demo/COCO_val2014_000000012115.jpg
+Detection took 0.500s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012120.jpg
+Detection took 0.504s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012147.jpg
+Detection took 0.450s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012153.jpg
+Detection took 0.563s for 210 object proposals
+Demo for data/demo/COCO_val2014_000000012166.jpg
+Detection took 0.597s for 248 object proposals
+Demo for data/demo/COCO_val2014_000000012179.jpg
+Detection took 0.437s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000012192.jpg
+Detection took 0.543s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012204.jpg
+Detection took 0.532s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000012209.jpg
+Detection took 0.545s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012230.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012231.jpg
+Detection took 0.411s for 136 object proposals
+Demo for data/demo/COCO_val2014_000000012236.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012238.jpg
+Detection took 0.454s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012269.jpg
+Detection took 0.587s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000012280.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012319.jpg
+Detection took 0.600s for 209 object proposals
+Demo for data/demo/COCO_val2014_000000012323.jpg
+Detection took 0.478s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000012326.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012333.jpg
+Detection took 0.552s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012343.jpg
+Detection took 0.464s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000012370.jpg
+Detection took 0.579s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012375.jpg
+Detection took 0.478s for 168 object proposals
+Demo for data/demo/COCO_val2014_000000012413.jpg
+Detection took 0.550s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012443.jpg
+Detection took 0.508s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000012448.jpg
+Detection took 0.460s for 90 object proposals
+Demo for data/demo/COCO_val2014_000000012455.jpg
+Detection took 0.610s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000012464.jpg
+Detection took 0.535s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000012543.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012547.jpg
+Detection took 0.596s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012551.jpg
+Detection took 0.560s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000012552.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012570.jpg
+Detection took 0.598s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012576.jpg
+Detection took 0.565s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000012639.jpg
+Detection took 0.621s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012666.jpg
+Detection took 0.627s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012667.jpg
+Detection took 0.533s for 203 object proposals
+Demo for data/demo/COCO_val2014_000000012669.jpg
+Detection took 0.600s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012670.jpg
+Detection took 0.562s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012700.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012706.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012731.jpg
+Detection took 0.543s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012741.jpg
+Detection took 0.476s for 249 object proposals
+Demo for data/demo/COCO_val2014_000000012744.jpg
+Detection took 0.451s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012748.jpg
+Detection took 0.434s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000012754.jpg
+Detection took 0.565s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012764.jpg
+Detection took 0.483s for 159 object proposals
+Demo for data/demo/COCO_val2014_000000012809.jpg
+Detection took 0.561s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012817.jpg
+Detection took 0.580s for 239 object proposals
+Demo for data/demo/COCO_val2014_000000012818.jpg
+Detection took 0.483s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012827.jpg
+Detection took 0.441s for 283 object proposals
+Demo for data/demo/COCO_val2014_000000012860.jpg
+Detection took 0.567s for 134 object proposals
+Demo for data/demo/COCO_val2014_000000012881.jpg
+Detection took 0.683s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012887.jpg
+Detection took 0.554s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012896.jpg
+Detection took 0.757s for 242 object proposals
+Demo for data/demo/COCO_val2014_000000012897.jpg
+Detection took 0.598s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012938.jpg
+Detection took 0.483s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012943.jpg
+Detection took 0.494s for 285 object proposals
+Demo for data/demo/COCO_val2014_000000012946.jpg
+Detection took 0.580s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012947.jpg
+Detection took 0.727s for 235 object proposals
+Demo for data/demo/COCO_val2014_000000012959.jpg
+Detection took 0.647s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012966.jpg
+Detection took 0.701s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000012979.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012991.jpg
+Detection took 0.597s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012993.jpg
+Detection took 0.623s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013004.jpg
+Detection took 0.479s for 116 object proposals
+Demo for data/demo/COCO_val2014_000000013031.jpg
+Detection took 0.443s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000013061.jpg
+Detection took 0.406s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000013081.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013127.jpg
+Detection took 0.549s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013145.jpg
+Detection took 0.402s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000013148.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013159.jpg
+Detection took 0.422s for 142 object proposals
+Demo for data/demo/COCO_val2014_000000013168.jpg
+Detection took 0.425s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013175.jpg
+Detection took 0.554s for 214 object proposals
+Demo for data/demo/COCO_val2014_000000013177.jpg
+Detection took 0.568s for 234 object proposals
+Demo for data/demo/COCO_val2014_000000013201.jpg
+Detection took 0.681s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000013220.jpg
+Detection took 0.555s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013232.jpg
+Detection took 0.616s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000013291.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013296.jpg
+Detection took 0.542s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013300.jpg
+Detection took 0.497s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000013333.jpg
+Detection took 0.564s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013348.jpg
+Detection took 0.595s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013379.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013383.jpg
+Detection took 0.434s for 162 object proposals
+Demo for data/demo/COCO_val2014_000000013414.jpg
+Detection took 0.614s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013415.jpg
+Detection took 0.709s for 231 object proposals
+Demo for data/demo/COCO_val2014_000000013420.jpg
+Detection took 0.615s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013428.jpg
+Detection took 0.464s for 98 object proposals
+Demo for data/demo/COCO_val2014_000000013432.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013445.jpg
+Detection took 0.596s for 209 object proposals
+Demo for data/demo/COCO_val2014_000000013465.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013466.jpg
+Detection took 0.558s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000013473.jpg
+Detection took 0.351s for 277 object proposals
+Demo for data/demo/COCO_val2014_000000013490.jpg
+Detection took 0.482s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000013525.jpg
+Detection took 0.501s for 102 object proposals
+Demo for data/demo/COCO_val2014_000000013546.jpg
+Detection took 0.670s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013597.jpg
+Detection took 0.566s for 87 object proposals
+Demo for data/demo/COCO_val2014_000000013605.jpg
+Detection took 0.470s for 175 object proposals
+Demo for data/demo/COCO_val2014_000000013632.jpg
+Detection took 0.441s for 128 object proposals
+Demo for data/demo/COCO_val2014_000000013637.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013639.jpg
+Detection took 0.489s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000013659.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013721.jpg
+Detection took 0.831s for 219 object proposals
+Demo for data/demo/COCO_val2014_000000013729.jpg
+Detection took 0.608s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013769.jpg
+Detection took 0.551s for 174 object proposals
+Demo for data/demo/COCO_val2014_000000013774.jpg
+Detection took 0.477s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000013783.jpg
+Detection took 0.509s for 227 object proposals
+Demo for data/demo/COCO_val2014_000000013789.jpg
+Detection took 0.658s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000013832.jpg
+Detection took 0.484s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000013843.jpg
+Detection took 0.498s for 155 object proposals
+Demo for data/demo/COCO_val2014_000000013876.jpg
+Detection took 0.565s for 242 object proposals
+Demo for data/demo/COCO_val2014_000000013882.jpg
+Detection took 0.470s for 191 object proposals
+Demo for data/demo/COCO_val2014_000000013892.jpg
+Detection took 0.592s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013904.jpg
+Detection took 0.525s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013923.jpg
+Detection took 0.704s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013943.jpg
+Detection took 0.619s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013948.jpg
+Detection took 0.543s for 149 object proposals
+Demo for data/demo/COCO_val2014_000000013965.jpg
+Detection took 0.416s for 256 object proposals
+Demo for data/demo/COCO_val2014_000000013980.jpg
+Detection took 0.584s for 212 object proposals
+Demo for data/demo/COCO_val2014_000000013985.jpg
+Detection took 0.547s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013991.jpg
+Detection took 0.385s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013992.jpg
+Detection took 0.480s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014004.jpg
+Detection took 0.482s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014007.jpg
+Detection took 0.488s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000014038.jpg
+Detection took 0.572s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014041.jpg
+Detection took 0.536s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014056.jpg
+Detection took 0.484s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014088.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014108.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014135.jpg
+Detection took 0.514s for 279 object proposals
+Demo for data/demo/COCO_val2014_000000014151.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014167.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014175.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014226.jpg
+Detection took 0.518s for 229 object proposals
+Demo for data/demo/COCO_val2014_000000014248.jpg
+Detection took 0.380s for 129 object proposals
+Demo for data/demo/COCO_val2014_000000014257.jpg
+Detection took 0.542s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014265.jpg
+Detection took 0.555s for 221 object proposals
+Demo for data/demo/COCO_val2014_000000014271.jpg
+Detection took 0.580s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000014278.jpg
+Detection took 0.584s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014282.jpg
+Detection took 0.607s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014285.jpg
+Detection took 0.470s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014297.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014306.jpg
+Detection took 0.554s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014321.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014338.jpg
+Detection took 0.608s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014352.jpg
+Detection took 0.558s for 270 object proposals
+Demo for data/demo/COCO_val2014_000000014353.jpg
+Detection took 0.490s for 175 object proposals
+Demo for data/demo/COCO_val2014_000000014380.jpg
+Detection took 0.661s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014392.jpg
+Detection took 0.567s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014428.jpg
+Detection took 0.632s for 149 object proposals
+Demo for data/demo/COCO_val2014_000000014439.jpg
+Detection took 0.571s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014450.jpg
+Detection took 0.407s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014473.jpg
+Detection took 0.553s for 262 object proposals
+Demo for data/demo/COCO_val2014_000000014494.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014504.jpg
+Detection took 0.444s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014526.jpg
+Detection took 0.544s for 284 object proposals
+Demo for data/demo/COCO_val2014_000000014547.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014549.jpg
+Detection took 0.438s for 160 object proposals
+Demo for data/demo/COCO_val2014_000000014557.jpg
+Detection took 0.539s for 193 object proposals
+Demo for data/demo/COCO_val2014_000000014562.jpg
+Detection took 0.463s for 262 object proposals
+Demo for data/demo/COCO_val2014_000000014567.jpg
+Detection took 0.422s for 159 object proposals
+Demo for data/demo/COCO_val2014_000000014591.jpg
+Detection took 0.403s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014592.jpg
+Detection took 0.484s for 126 object proposals
+Demo for data/demo/COCO_val2014_000000014600.jpg
+Detection took 0.696s for 229 object proposals
+Demo for data/demo/COCO_val2014_000000014629.jpg
+Detection took 0.674s for 215 object proposals
+Demo for data/demo/COCO_val2014_000000014635.jpg
+Detection took 0.577s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014713.jpg
+Detection took 0.602s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014723.jpg
+Detection took 0.576s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014733.jpg
+Detection took 0.596s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014743.jpg
+Detection took 0.650s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014756.jpg
+Detection took 0.395s for 284 object proposals
+Demo for data/demo/COCO_val2014_000000014773.jpg
+Detection took 0.646s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000014781.jpg
+Detection took 0.653s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014820.jpg
+Detection took 0.484s for 279 object proposals
+Demo for data/demo/COCO_val2014_000000014821.jpg
+Detection took 0.491s for 264 object proposals
+Demo for data/demo/COCO_val2014_000000014831.jpg
+Detection took 0.445s for 110 object proposals
+Demo for data/demo/COCO_val2014_000000014845.jpg
+Detection took 0.466s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014869.jpg
+Detection took 0.435s for 268 object proposals
+Demo for data/demo/COCO_val2014_000000014874.jpg
+Detection took 0.518s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014880.jpg
+Detection took 0.601s for 237 object proposals
+Demo for data/demo/COCO_val2014_000000012085.jpg
+Detection took 0.481s for 155 object proposals
+Demo for data/demo/COCO_val2014_000000012268.jpg
+Detection took 0.630s for 242 object proposals
+Demo for data/demo/COCO_val2014_000000012471.jpg
+Detection took 0.564s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000012733.jpg
+Detection took 0.557s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000012927.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013132.jpg
+Detection took 0.420s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013357.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013550.jpg
+Detection took 0.703s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000013867.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014029.jpg
+Detection took 0.787s for 244 object proposals
+Demo for data/demo/COCO_val2014_000000014276.jpg
+Detection took 0.488s for 165 object proposals
+Demo for data/demo/COCO_val2014_000000014470.jpg
+Detection took 0.491s for 294 object proposals
+Demo for data/demo/COCO_val2014_000000014681.jpg
+Detection took 0.707s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000014892.jpg
+Detection took 0.569s for 168 object proposals
+Demo for data/demo/COCO_val2014_000000014921.jpg
+Detection took 0.683s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000014940.jpg
+Detection took 0.370s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000014941.jpg
+Detection took 0.468s for 151 object proposals
+Demo for data/demo/COCO_val2014_000000014961.jpg
+Detection took 0.444s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000014975.jpg
+Detection took 0.570s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000014990.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015006.jpg
+Detection took 0.461s for 176 object proposals
+Demo for data/demo/COCO_val2014_000000015017.jpg
+Detection took 0.463s for 291 object proposals
+Demo for data/demo/COCO_val2014_000000015029.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015032.jpg
+Detection took 0.615s for 193 object proposals
+Demo for data/demo/COCO_val2014_000000015050.jpg
+Detection took 0.671s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015055.jpg
+Detection took 0.440s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000015067.jpg
+Detection took 0.657s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015074.jpg
+Detection took 0.553s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000015079.jpg
+Detection took 0.623s for 114 object proposals
+Demo for data/demo/COCO_val2014_000000015085.jpg
+Detection took 0.556s for 289 object proposals
+Demo for data/demo/COCO_val2014_000000015113.jpg
+Detection took 0.558s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000015140.jpg
+Detection took 0.441s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000015148.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015155.jpg
+Detection took 0.586s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000015157.jpg
+Detection took 0.610s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015180.jpg
+Detection took 0.562s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015254.jpg
+Detection took 0.459s for 161 object proposals
+Demo for data/demo/COCO_val2014_000000015259.jpg
+Detection took 0.588s for 164 object proposals
+Demo for data/demo/COCO_val2014_000000015260.jpg
+Detection took 0.613s for 126 object proposals
+Demo for data/demo/COCO_val2014_000000015267.jpg
+Detection took 0.408s for 261 object proposals
+Demo for data/demo/COCO_val2014_000000015272.jpg
+Detection took 0.535s for 127 object proposals
+Demo for data/demo/COCO_val2014_000000015301.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015303.jpg
+Detection took 0.574s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015335.jpg
+Detection took 0.505s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000015338.jpg
+Detection took 0.518s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015345.jpg
+Detection took 0.457s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015386.jpg
+Detection took 0.478s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015440.jpg
+Detection took 0.565s for 260 object proposals
+Demo for data/demo/COCO_val2014_000000015469.jpg
+Detection took 0.549s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015497.jpg
+Detection took 0.504s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000015517.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015528.jpg
+Detection took 0.441s for 149 object proposals
+Demo for data/demo/COCO_val2014_000000015542.jpg
+Detection took 0.433s for 174 object proposals
+Demo for data/demo/COCO_val2014_000000015559.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015565.jpg
+Detection took 0.552s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000015567.jpg
+Detection took 0.397s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000015581.jpg
+Detection took 0.462s for 107 object proposals
+Demo for data/demo/COCO_val2014_000000015596.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015597.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015599.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015600.jpg
+Detection took 0.518s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000015614.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015660.jpg
+Detection took 0.678s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015663.jpg
+Detection took 0.561s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015667.jpg
+Detection took 0.594s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000015681.jpg
+Detection took 0.591s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000015687.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015690.jpg
+Detection took 0.622s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000015709.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015735.jpg
+Detection took 0.437s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000015738.jpg
+Detection took 0.612s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015746.jpg
+Detection took 0.651s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015751.jpg
+Detection took 0.473s for 159 object proposals
+Demo for data/demo/COCO_val2014_000000015778.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015797.jpg
+Detection took 0.687s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000015802.jpg
+Detection took 0.542s for 202 object proposals
+Demo for data/demo/COCO_val2014_000000015810.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015811.jpg
+Detection took 0.425s for 152 object proposals
+Demo for data/demo/COCO_val2014_000000015818.jpg
+Detection took 0.387s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015826.jpg
+Detection took 0.591s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015827.jpg
+Detection took 0.538s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015839.jpg
+Detection took 0.541s for 218 object proposals
+Demo for data/demo/COCO_val2014_000000015846.jpg
+Detection took 0.485s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015862.jpg
+Detection took 0.475s for 200 object proposals
+Demo for data/demo/COCO_val2014_000000015883.jpg
+Detection took 0.641s for 197 object proposals
+Demo for data/demo/COCO_val2014_000000015908.jpg
+Detection took 0.651s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015918.jpg
+Detection took 0.476s for 269 object proposals
+Demo for data/demo/COCO_val2014_000000015947.jpg
+Detection took 0.590s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015953.jpg
+Detection took 0.442s for 127 object proposals
+Demo for data/demo/COCO_val2014_000000015954.jpg
+Detection took 0.487s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015956.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015968.jpg
+Detection took 0.488s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000015978.jpg
+Detection took 0.483s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000015984.jpg
+Detection took 0.638s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000015987.jpg
+Detection took 0.607s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015994.jpg
+Detection took 0.423s for 168 object proposals
+Demo for data/demo/COCO_val2014_000000016005.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016025.jpg
+Detection took 0.462s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016030.jpg
+Detection took 0.546s for 295 object proposals
+Demo for data/demo/COCO_val2014_000000016046.jpg
+Detection took 0.641s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016064.jpg
+Detection took 0.600s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016076.jpg
+Detection took 0.586s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016098.jpg
+Detection took 0.445s for 102 object proposals
+Demo for data/demo/COCO_val2014_000000016161.jpg
+Detection took 0.539s for 130 object proposals
+Demo for data/demo/COCO_val2014_000000016164.jpg
+Detection took 0.707s for 244 object proposals
+Demo for data/demo/COCO_val2014_000000016180.jpg
+Detection took 0.494s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016193.jpg
+Detection took 0.481s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000016228.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016237.jpg
+Detection took 0.601s for 210 object proposals
+Demo for data/demo/COCO_val2014_000000016238.jpg
+Detection took 0.503s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016241.jpg
+Detection took 0.543s for 202 object proposals
+Demo for data/demo/COCO_val2014_000000016257.jpg
+Detection took 0.471s for 113 object proposals
+Demo for data/demo/COCO_val2014_000000016285.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016308.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016318.jpg
+Detection took 0.494s for 291 object proposals
+Demo for data/demo/COCO_val2014_000000016327.jpg
+Detection took 0.670s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016356.jpg
+Detection took 0.633s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016360.jpg
+Detection took 0.533s for 153 object proposals
+Demo for data/demo/COCO_val2014_000000016377.jpg
+Detection took 0.673s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016382.jpg
+Detection took 0.533s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016410.jpg
+Detection took 0.607s for 247 object proposals
+Demo for data/demo/COCO_val2014_000000016439.jpg
+Detection took 0.482s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016451.jpg
+Detection took 0.395s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016466.jpg
+Detection took 0.521s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016491.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016499.jpg
+Detection took 0.451s for 268 object proposals
+Demo for data/demo/COCO_val2014_000000016502.jpg
+Detection took 0.496s for 189 object proposals
+Demo for data/demo/COCO_val2014_000000016521.jpg
+Detection took 0.668s for 253 object proposals
+Demo for data/demo/COCO_val2014_000000016523.jpg
+Detection took 0.504s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016546.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016574.jpg
+Detection took 0.539s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016590.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016593.jpg
+Detection took 0.470s for 164 object proposals
+Demo for data/demo/COCO_val2014_000000016598.jpg
+Detection took 0.468s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000016599.jpg
+Detection took 0.593s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016606.jpg
+Detection took 0.552s for 149 object proposals
+Demo for data/demo/COCO_val2014_000000016631.jpg
+Detection took 0.567s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016689.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016704.jpg
+Detection took 0.542s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000016730.jpg
+Detection took 0.460s for 198 object proposals
+Demo for data/demo/COCO_val2014_000000016732.jpg
+Detection took 0.635s for 187 object proposals
+Demo for data/demo/COCO_val2014_000000016733.jpg
+Detection took 0.565s for 122 object proposals
+Demo for data/demo/COCO_val2014_000000016744.jpg
+Detection took 0.636s for 233 object proposals
+Demo for data/demo/COCO_val2014_000000016761.jpg
+Detection took 0.674s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000016775.jpg
+Detection took 0.561s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016776.jpg
+Detection took 0.512s for 297 object proposals
+Demo for data/demo/COCO_val2014_000000016817.jpg
+Detection took 0.591s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016838.jpg
+Detection took 0.483s for 169 object proposals
+Demo for data/demo/COCO_val2014_000000016848.jpg
+Detection took 0.560s for 199 object proposals
+Demo for data/demo/COCO_val2014_000000016875.jpg
+Detection took 0.523s for 182 object proposals
+Demo for data/demo/COCO_val2014_000000016879.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016896.jpg
+Detection took 0.708s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016897.jpg
+Detection took 0.571s for 236 object proposals
+Demo for data/demo/COCO_val2014_000000016905.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016928.jpg
+Detection took 0.432s for 144 object proposals
+Demo for data/demo/COCO_val2014_000000016931.jpg
+Detection took 0.486s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016958.jpg
+Detection took 0.519s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016959.jpg
+Detection took 0.536s for 229 object proposals
+Demo for data/demo/COCO_val2014_000000016961.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016977.jpg
+Detection took 0.478s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016995.jpg
+Detection took 0.470s for 194 object proposals
+Demo for data/demo/COCO_val2014_000000017003.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017018.jpg
+Detection took 0.462s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017029.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017031.jpg
+Detection took 0.488s for 147 object proposals
+Demo for data/demo/COCO_val2014_000000017073.jpg
+Detection took 0.539s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017089.jpg
+Detection took 0.495s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017115.jpg
+Detection took 0.538s for 206 object proposals
+Demo for data/demo/COCO_val2014_000000017152.jpg
+Detection took 0.452s for 237 object proposals
+Demo for data/demo/COCO_val2014_000000017178.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017179.jpg
+Detection took 0.553s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000017182.jpg
+Detection took 0.505s for 276 object proposals
+Demo for data/demo/COCO_val2014_000000017198.jpg
+Detection took 0.593s for 211 object proposals
+Demo for data/demo/COCO_val2014_000000017207.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017235.jpg
+Detection took 0.494s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017244.jpg
+Detection took 0.623s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000017260.jpg
+Detection took 0.602s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017267.jpg
+Detection took 0.508s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017272.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017273.jpg
+Detection took 0.544s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000017282.jpg
+Detection took 0.529s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017313.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017328.jpg
+Detection took 0.606s for 254 object proposals
+Demo for data/demo/COCO_val2014_000000017350.jpg
+Detection took 0.493s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017364.jpg
+Detection took 0.529s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017365.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017366.jpg
+Detection took 0.435s for 126 object proposals
+Demo for data/demo/COCO_val2014_000000017379.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017409.jpg
+Detection took 0.496s for 191 object proposals
+Demo for data/demo/COCO_val2014_000000017425.jpg
+Detection took 0.473s for 295 object proposals
+Demo for data/demo/COCO_val2014_000000017436.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017449.jpg
+Detection took 0.517s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017482.jpg
+Detection took 0.473s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017484.jpg
+Detection took 0.519s for 113 object proposals
+Demo for data/demo/COCO_val2014_000000017534.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017627.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017655.jpg
+Detection took 0.465s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000017667.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017707.jpg
+Detection took 0.508s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017708.jpg
+Detection took 0.486s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017714.jpg
+Detection took 0.481s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017741.jpg
+Detection took 0.430s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017755.jpg
+Detection took 0.719s for 190 object proposals
+Demo for data/demo/COCO_val2014_000000017756.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017769.jpg
+Detection took 0.430s for 162 object proposals
+Demo for data/demo/COCO_val2014_000000017776.jpg
+Detection took 0.543s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000017778.jpg
+Detection took 0.400s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017859.jpg
+Detection took 0.401s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017867.jpg
+Detection took 0.462s for 136 object proposals
+Demo for data/demo/COCO_val2014_000000015070.jpg
+Detection took 0.503s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000015278.jpg
+Detection took 0.578s for 255 object proposals
+Demo for data/demo/COCO_val2014_000000015566.jpg
+Detection took 0.525s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000015725.jpg
+Detection took 0.550s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000015850.jpg
+Detection took 0.453s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000016010.jpg
+Detection took 0.531s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016249.jpg
+Detection took 0.492s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016497.jpg
+Detection took 0.434s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000016716.jpg
+Detection took 0.546s for 295 object proposals
+Demo for data/demo/COCO_val2014_000000016903.jpg
+Detection took 0.520s for 172 object proposals
+Demo for data/demo/COCO_val2014_000000017095.jpg
+Detection took 0.443s for 266 object proposals
+Demo for data/demo/COCO_val2014_000000017311.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017613.jpg
+Detection took 0.541s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000017882.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017899.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017905.jpg
+Detection took 0.450s for 268 object proposals
+Demo for data/demo/COCO_val2014_000000017909.jpg
+Detection took 0.600s for 243 object proposals
+Demo for data/demo/COCO_val2014_000000017921.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017923.jpg
+Detection took 0.502s for 122 object proposals
+Demo for data/demo/COCO_val2014_000000017927.jpg
+Detection took 0.515s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017944.jpg
+Detection took 0.533s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017953.jpg
+Detection took 0.486s for 281 object proposals
+Demo for data/demo/COCO_val2014_000000017959.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000017966.jpg
+Detection took 0.474s for 185 object proposals
+Demo for data/demo/COCO_val2014_000000017972.jpg
+Detection took 0.482s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000017984.jpg
+Detection took 0.592s for 246 object proposals
+Demo for data/demo/COCO_val2014_000000018014.jpg
+Detection took 0.391s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018046.jpg
+Detection took 0.562s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000018058.jpg
+Detection took 0.450s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018073.jpg
+Detection took 0.579s for 230 object proposals
+Demo for data/demo/COCO_val2014_000000018098.jpg
+Detection took 0.702s for 228 object proposals
+Demo for data/demo/COCO_val2014_000000018111.jpg
+Detection took 0.516s for 298 object proposals
+Demo for data/demo/COCO_val2014_000000018136.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018148.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018149.jpg
+Detection took 0.520s for 271 object proposals
+Demo for data/demo/COCO_val2014_000000018150.jpg
+Detection took 0.536s for 237 object proposals
+Demo for data/demo/COCO_val2014_000000018158.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018191.jpg
+Detection took 0.484s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000018193.jpg
+Detection took 0.540s for 210 object proposals
+Demo for data/demo/COCO_val2014_000000018224.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018239.jpg
+Detection took 0.537s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018291.jpg
+Detection took 0.401s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018295.jpg
+Detection took 0.559s for 208 object proposals
+Demo for data/demo/COCO_val2014_000000018319.jpg
+Detection took 0.448s for 145 object proposals
+Demo for data/demo/COCO_val2014_000000018336.jpg
+Detection took 0.367s for 137 object proposals
+Demo for data/demo/COCO_val2014_000000018350.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018358.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018366.jpg
+Detection took 0.467s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018380.jpg
+Detection took 0.516s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018412.jpg
+Detection took 0.384s for 128 object proposals
+Demo for data/demo/COCO_val2014_000000018426.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018442.jpg
+Detection took 0.511s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018444.jpg
+Detection took 0.533s for 181 object proposals
+Demo for data/demo/COCO_val2014_000000018461.jpg
+Detection took 0.435s for 263 object proposals
+Demo for data/demo/COCO_val2014_000000018462.jpg
+Detection took 0.460s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018480.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018485.jpg
+Detection took 0.456s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018490.jpg
+Detection took 0.573s for 205 object proposals
+Demo for data/demo/COCO_val2014_000000018491.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018519.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018525.jpg
+Detection took 0.441s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018531.jpg
+Detection took 0.406s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018534.jpg
+Detection took 0.574s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018553.jpg
+Detection took 0.479s for 199 object proposals
+Demo for data/demo/COCO_val2014_000000018563.jpg
+Detection took 0.409s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018575.jpg
+Detection took 0.436s for 163 object proposals
+Demo for data/demo/COCO_val2014_000000018654.jpg
+Detection took 0.547s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018666.jpg
+Detection took 0.558s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018687.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018699.jpg
+Detection took 0.505s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018728.jpg
+Detection took 0.554s for 237 object proposals
+Demo for data/demo/COCO_val2014_000000018737.jpg
+Detection took 0.547s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018750.jpg
+Detection took 0.419s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000018770.jpg
+Detection took 0.451s for 100 object proposals
+Demo for data/demo/COCO_val2014_000000018771.jpg
+Detection took 0.544s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018781.jpg
+Detection took 0.450s for 122 object proposals
+Demo for data/demo/COCO_val2014_000000018783.jpg
+Detection took 0.469s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018794.jpg
+Detection took 0.560s for 204 object proposals
+Demo for data/demo/COCO_val2014_000000018824.jpg
+Detection took 0.572s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018833.jpg
+Detection took 0.441s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000018837.jpg
+Detection took 0.505s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018841.jpg
+Detection took 0.475s for 150 object proposals
+Demo for data/demo/COCO_val2014_000000018864.jpg
+Detection took 0.528s for 188 object proposals
+Demo for data/demo/COCO_val2014_000000018888.jpg
+Detection took 0.543s for 226 object proposals
+Demo for data/demo/COCO_val2014_000000018893.jpg
+Detection took 0.419s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000018896.jpg
+Detection took 0.486s for 197 object proposals
+Demo for data/demo/COCO_val2014_000000018903.jpg
+Detection took 0.474s for 111 object proposals
+Demo for data/demo/COCO_val2014_000000018918.jpg
+Detection took 0.510s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018928.jpg
+Detection took 0.533s for 273 object proposals
+Demo for data/demo/COCO_val2014_000000018957.jpg
+Detection took 0.465s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018975.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018982.jpg
+Detection took 0.425s for 139 object proposals
+Demo for data/demo/COCO_val2014_000000019025.jpg
+Detection took 0.470s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019028.jpg
+Detection took 0.541s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019032.jpg
+Detection took 0.596s for 251 object proposals
+Demo for data/demo/COCO_val2014_000000019036.jpg
+Detection took 0.476s for 261 object proposals
+Demo for data/demo/COCO_val2014_000000019042.jpg
+Detection took 0.580s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019079.jpg
+Detection took 0.435s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019087.jpg
+Detection took 0.552s for 212 object proposals
+Demo for data/demo/COCO_val2014_000000019090.jpg
+Detection took 0.488s for 275 object proposals
+Demo for data/demo/COCO_val2014_000000019102.jpg
+Detection took 0.490s for 188 object proposals
+Demo for data/demo/COCO_val2014_000000019109.jpg
+Detection took 0.501s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019129.jpg
+Detection took 0.536s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019132.jpg
+Detection took 0.544s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000019142.jpg
+Detection took 0.586s for 253 object proposals
+Demo for data/demo/COCO_val2014_000000019157.jpg
+Detection took 0.549s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019158.jpg
+Detection took 0.487s for 292 object proposals
+Demo for data/demo/COCO_val2014_000000019167.jpg
+Detection took 0.405s for 166 object proposals
+Demo for data/demo/COCO_val2014_000000019176.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019221.jpg
+Detection took 0.406s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000019226.jpg
+Detection took 0.446s for 132 object proposals
+Demo for data/demo/COCO_val2014_000000019253.jpg
+Detection took 0.425s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019275.jpg
+Detection took 0.412s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019292.jpg
+Detection took 0.603s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019304.jpg
+Detection took 0.646s for 270 object proposals
+Demo for data/demo/COCO_val2014_000000019306.jpg
+Detection took 0.574s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019308.jpg
+Detection took 0.480s for 97 object proposals
+Demo for data/demo/COCO_val2014_000000019313.jpg
+Detection took 0.486s for 192 object proposals
+Demo for data/demo/COCO_val2014_000000019322.jpg
+Detection took 0.411s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019324.jpg
+Detection took 0.528s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019333.jpg
+Detection took 0.495s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019358.jpg
+Detection took 0.431s for 132 object proposals
+Demo for data/demo/COCO_val2014_000000019402.jpg
+Detection took 0.460s for 143 object proposals
+Demo for data/demo/COCO_val2014_000000019404.jpg
+Detection took 0.547s for 122 object proposals
+Demo for data/demo/COCO_val2014_000000019432.jpg
+Detection took 0.472s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019443.jpg
+Detection took 0.565s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019444.jpg
+Detection took 0.497s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019446.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019447.jpg
+Detection took 0.526s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019451.jpg
+Detection took 0.496s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019455.jpg
+Detection took 0.514s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019456.jpg
+Detection took 0.476s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019484.jpg
+Detection took 0.434s for 286 object proposals
+Demo for data/demo/COCO_val2014_000000019491.jpg
+Detection took 0.456s for 108 object proposals
+Demo for data/demo/COCO_val2014_000000019523.jpg
+Detection took 0.455s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019532.jpg
+Detection took 0.435s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019544.jpg
+Detection took 0.509s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019559.jpg
+Detection took 0.423s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019579.jpg
+Detection took 0.395s for 136 object proposals
+Demo for data/demo/COCO_val2014_000000019592.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019608.jpg
+Detection took 0.565s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019624.jpg
+Detection took 0.521s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019631.jpg
+Detection took 0.489s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019663.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019667.jpg
+Detection took 0.418s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019712.jpg
+Detection took 0.555s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019716.jpg
+Detection took 0.501s for 182 object proposals
+Demo for data/demo/COCO_val2014_000000019723.jpg
+Detection took 0.565s for 252 object proposals
+Demo for data/demo/COCO_val2014_000000019742.jpg
+Detection took 0.506s for 207 object proposals
+Demo for data/demo/COCO_val2014_000000019763.jpg
+Detection took 0.520s for 298 object proposals
+Demo for data/demo/COCO_val2014_000000019783.jpg
+Detection took 0.581s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019786.jpg
+Detection took 0.542s for 216 object proposals
+Demo for data/demo/COCO_val2014_000000019817.jpg
+Detection took 0.584s for 212 object proposals
+Demo for data/demo/COCO_val2014_000000019888.jpg
+Detection took 0.488s for 284 object proposals
+Demo for data/demo/COCO_val2014_000000019890.jpg
+Detection took 0.491s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019904.jpg
+Detection took 0.534s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019916.jpg
+Detection took 0.397s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019923.jpg
+Detection took 0.494s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019924.jpg
+Detection took 0.501s for 246 object proposals
+Demo for data/demo/COCO_val2014_000000019957.jpg
+Detection took 0.551s for 240 object proposals
+Demo for data/demo/COCO_val2014_000000019962.jpg
+Detection took 0.407s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019974.jpg
+Detection took 0.501s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000019981.jpg
+Detection took 0.502s for 218 object proposals
+Demo for data/demo/COCO_val2014_000000020001.jpg
+Detection took 0.429s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020004.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020038.jpg
+Detection took 0.487s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020059.jpg
+Detection took 0.590s for 218 object proposals
+Demo for data/demo/COCO_val2014_000000020070.jpg
+Detection took 0.473s for 193 object proposals
+Demo for data/demo/COCO_val2014_000000020107.jpg
+Detection took 0.416s for 134 object proposals
+Demo for data/demo/COCO_val2014_000000020111.jpg
+Detection took 0.469s for 287 object proposals
+Demo for data/demo/COCO_val2014_000000020147.jpg
+Detection took 0.498s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020161.jpg
+Detection took 0.418s for 283 object proposals
+Demo for data/demo/COCO_val2014_000000020175.jpg
+Detection took 0.535s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020177.jpg
+Detection took 0.542s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020178.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020179.jpg
+Detection took 0.571s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020207.jpg
+Detection took 0.432s for 108 object proposals
+Demo for data/demo/COCO_val2014_000000020247.jpg
+Detection took 0.400s for 135 object proposals
+Demo for data/demo/COCO_val2014_000000020254.jpg
+Detection took 0.536s for 178 object proposals
+Demo for data/demo/COCO_val2014_000000020268.jpg
+Detection took 0.547s for 282 object proposals
+Demo for data/demo/COCO_val2014_000000020273.jpg
+Detection took 0.517s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020305.jpg
+Detection took 0.511s for 289 object proposals
+Demo for data/demo/COCO_val2014_000000020307.jpg
+Detection took 0.415s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020333.jpg
+Detection took 0.473s for 170 object proposals
+Demo for data/demo/COCO_val2014_000000020334.jpg
+Detection took 0.450s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020342.jpg
+Detection took 0.416s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020349.jpg
+Detection took 0.437s for 268 object proposals
+Demo for data/demo/COCO_val2014_000000020371.jpg
+Detection took 0.433s for 151 object proposals
+Demo for data/demo/COCO_val2014_000000020381.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020395.jpg
+Detection took 0.484s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020403.jpg
+Detection took 0.473s for 202 object proposals
+Demo for data/demo/COCO_val2014_000000020410.jpg
+Detection took 0.468s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020438.jpg
+Detection took 0.493s for 171 object proposals
+Demo for data/demo/COCO_val2014_000000020459.jpg
+Detection took 0.489s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000020465.jpg
+Detection took 0.481s for 154 object proposals
+Demo for data/demo/COCO_val2014_000000020481.jpg
+Detection took 0.573s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000020485.jpg
+Detection took 0.610s for 155 object proposals
+Demo for data/demo/COCO_val2014_000000020487.jpg
+Detection took 0.615s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020536.jpg
+Detection took 0.468s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000020541.jpg
+Detection took 0.571s for 213 object proposals
+Demo for data/demo/COCO_val2014_000000020553.jpg
+Detection took 0.458s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020570.jpg
+Detection took 0.428s for 264 object proposals
+Demo for data/demo/COCO_val2014_000000020571.jpg
+Detection took 0.475s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020598.jpg
+Detection took 0.546s for 199 object proposals
+Demo for data/demo/COCO_val2014_000000020608.jpg
+Detection took 0.452s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020629.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020632.jpg
+Detection took 0.467s for 198 object proposals
+Demo for data/demo/COCO_val2014_000000020641.jpg
+Detection took 0.453s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020646.jpg
+Detection took 0.457s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018022.jpg
+Detection took 0.513s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018267.jpg
+Detection took 0.423s for 89 object proposals
+Demo for data/demo/COCO_val2014_000000018476.jpg
+Detection took 0.441s for 99 object proposals
+Demo for data/demo/COCO_val2014_000000018688.jpg
+Detection took 0.467s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000018874.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019047.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019247.jpg
+Detection took 0.487s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019441.jpg
+Detection took 0.459s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000019589.jpg
+Detection took 0.462s for 259 object proposals
+Demo for data/demo/COCO_val2014_000000019881.jpg
+Detection took 0.479s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020069.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020276.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020470.jpg
+Detection took 0.862s for 187 object proposals
+Demo for data/demo/COCO_val2014_000000020671.jpg
+Detection took 0.519s for 223 object proposals
+Demo for data/demo/COCO_val2014_000000020748.jpg
+Detection took 0.474s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020760.jpg
+Detection took 0.502s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020774.jpg
+Detection took 0.523s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020777.jpg
+Detection took 0.839s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020779.jpg
+Detection took 1.024s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020781.jpg
+Detection took 0.681s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020784.jpg
+Detection took 0.741s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020788.jpg
+Detection took 0.507s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020796.jpg
+Detection took 0.545s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000020820.jpg
+Detection took 0.554s for 232 object proposals
+Demo for data/demo/COCO_val2014_000000020837.jpg
+Detection took 0.511s for 210 object proposals
+Demo for data/demo/COCO_val2014_000000020904.jpg
+Detection took 0.504s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020906.jpg
+Detection took 0.457s for 104 object proposals
+Demo for data/demo/COCO_val2014_000000020912.jpg
+Detection took 0.478s for 197 object proposals
+Demo for data/demo/COCO_val2014_000000020913.jpg
+Detection took 0.731s for 162 object proposals
+Demo for data/demo/COCO_val2014_000000020915.jpg
+Detection took 0.436s for 123 object proposals
+Demo for data/demo/COCO_val2014_000000020925.jpg
+Detection took 0.647s for 167 object proposals
+Demo for data/demo/COCO_val2014_000000020935.jpg
+Detection took 0.490s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020947.jpg
+Detection took 0.536s for 281 object proposals
+Demo for data/demo/COCO_val2014_000000020965.jpg
+Detection took 0.476s for 278 object proposals
+Demo for data/demo/COCO_val2014_000000020972.jpg
+Detection took 0.748s for 178 object proposals
+Demo for data/demo/COCO_val2014_000000020979.jpg
+Detection took 1.906s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000020992.jpg
+Detection took 0.517s for 117 object proposals
+Demo for data/demo/COCO_val2014_000000021001.jpg
+Detection took 0.520s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021023.jpg
+Detection took 0.417s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021029.jpg
+Detection took 0.512s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021036.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021060.jpg
+Detection took 0.522s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021088.jpg
+Detection took 0.499s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021147.jpg
+Detection took 0.543s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021161.jpg
+Detection took 0.447s for 145 object proposals
+Demo for data/demo/COCO_val2014_000000021164.jpg
+Detection took 0.583s for 296 object proposals
+Demo for data/demo/COCO_val2014_000000021167.jpg
+Detection took 0.598s for 225 object proposals
+Demo for data/demo/COCO_val2014_000000021198.jpg
+Detection took 0.412s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021202.jpg
+Detection took 0.527s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021215.jpg
+Detection took 1.650s for 122 object proposals
+Demo for data/demo/COCO_val2014_000000021217.jpg
+Detection took 0.511s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021232.jpg
+Detection took 0.617s for 217 object proposals
+Demo for data/demo/COCO_val2014_000000021240.jpg
+Detection took 0.506s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021284.jpg
+Detection took 2.050s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021310.jpg
+Detection took 0.708s for 267 object proposals
+Demo for data/demo/COCO_val2014_000000021338.jpg
+Detection took 0.711s for 247 object proposals
+Demo for data/demo/COCO_val2014_000000021361.jpg
+Detection took 0.448s for 203 object proposals
+Demo for data/demo/COCO_val2014_000000021365.jpg
+Detection took 0.516s for 177 object proposals
+Demo for data/demo/COCO_val2014_000000021378.jpg
+Detection took 0.561s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021382.jpg
+Detection took 0.492s for 151 object proposals
+Demo for data/demo/COCO_val2014_000000021394.jpg
+Detection took 0.573s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021396.jpg
+Detection took 0.502s for 138 object proposals
+Demo for data/demo/COCO_val2014_000000021397.jpg
+Detection took 0.487s for 129 object proposals
+Demo for data/demo/COCO_val2014_000000021400.jpg
+Detection took 0.539s for 300 object proposals
+Demo for data/demo/COCO_val2014_000000021435.jpg
+Detection took 0.825s for 105 object proposals
+Demo for data/demo/COCO_val2014_000000021452.jpg
