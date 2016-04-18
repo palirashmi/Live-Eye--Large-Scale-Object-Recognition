@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-__author__ = 'tsungyi'
-# Modified for bigdata course requirements.
+
 
 import numpy as np
 import datetime
