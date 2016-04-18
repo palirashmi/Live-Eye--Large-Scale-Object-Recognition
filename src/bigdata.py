@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 
-# Modified from original source. Original source credits listed below.
-
-# --------------------------------------------------------
-# Written by Ross Girshick
-# --------------------------------------------------------
 
 """
 Demo script showing detections in sample images.
